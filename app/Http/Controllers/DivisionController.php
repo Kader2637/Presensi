@@ -61,7 +61,8 @@ class DivisionController extends Controller
      */
     public function update(UpdatedivisionRequest $request, division $division)
     {
-        //
+        $this->division->update($division->id , $request->all());
+        return back()->with('success' , 'Divisi Berhasil Di Ubah');
     }
 
     /**
@@ -69,6 +70,7 @@ class DivisionController extends Controller
      */
     public function destroy(division $division)
     {
-        //
+        $this->division->delete($division->id);
+        return back()->with('success' , 'Divisi Berhasil Di Hapus');
     }
 }
