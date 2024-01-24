@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,8 @@ Route::get('employee' , [EmployeController::class , 'index']);
 Route::get('absensi', function () {
     return view('menu.absensi');
 });
-
+Route::get('division' , [DivisionController::class , 'index']);
+Route::post('division' , [DivisionController::class , 'store']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
