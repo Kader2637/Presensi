@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('gender',[GenderEnum::MALE->value,GenderEnum::FEMALE->value]);
             $table->string('wages');
             $table->string('address');
-            $table->string('divisi');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('date_of_birth');
             $table->timestamps();
         });
