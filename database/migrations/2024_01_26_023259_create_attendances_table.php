@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->id();
-            $table->foreignUuid('employe_id')->constrained('employes')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('employe_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('status', ['masuk', 'izin', 'sakit', 'alpha'])->default('masuk');
             $table->timestamps();
         });

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attendace_details', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('attendance_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('status', ['present', 'break', 'return_break', 'return']);
             $table->timestamps();
