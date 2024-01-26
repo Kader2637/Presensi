@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class attendance extends Model
 {
     use HasFactory;
+    protected $table = 'attendances';
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    public $keyType = 'char';
 
     protected $guarded = [];
 

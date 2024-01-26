@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class attendace_detail extends Model
 {
     use HasFactory;
+    protected $table = 'attendances';
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    public $keyType = 'char';
 
     protected $guarded = [];
 

@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\attendace_detail;
+use App\Models\attendance;
 use App\Models\division;
 use App\Models\Employe;
+use App\Observers\AttendanceDetailObserver;
+use App\Observers\AttendanceObserver;
 use App\Observers\DivisionObserver;
 use App\Observers\EmployeObserver;
 use Illuminate\Auth\Events\Registered;
@@ -31,6 +35,8 @@ class EventServiceProvider extends ServiceProvider
     {
         Employe::observe(EmployeObserver::class);
         division::observe(DivisionObserver::class);
+        attendance::observe(AttendanceObserver::class);
+        attendace_detail::observe(AttendanceDetailObserver::class);
     }
 
     /**
