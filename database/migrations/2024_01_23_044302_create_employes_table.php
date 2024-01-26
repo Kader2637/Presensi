@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('position');
             $table->enum('gender',[GenderEnum::MALE->value,GenderEnum::FEMALE->value]);
             $table->string('wages');
+            $table->string('rfid')->nullable();
             $table->string('address');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('date_of_birth');
