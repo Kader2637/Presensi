@@ -17,15 +17,15 @@ class EmployeRepository extends BaseRepository implements EmployeInterface
     }
     public function store(array $data): mixed
     {
-        
+        return $this->model->query()->create($data);
     }
     public function update(mixed $id, array $data): mixed
     {
-        
+
     }
     public function delete(mixed $id): mixed
     {
-        
+
     }
 
 }
