@@ -22,14 +22,16 @@ Route::get('/', function () {
 Route::get('dashboard', function () {
     return view('dashboard');
 });
-Route::get('employee' , [EmployeController::class , 'index']);
+Route::get('employee', [EmployeController::class, 'index']);
 Route::get('absensi', function () {
     return view('menu.absensi');
 });
-Route::get('division' , [DivisionController::class , 'index']);
-Route::post('division' , [DivisionController::class , 'store']);
-Route::put('division/{division}' , [DivisionController::class , 'update']);
-Route::delete('delete-division/{division}' , [DivisionController::class , 'destroy']);
+Route::get('division', [DivisionController::class, 'index']);
+Route::post('division', [DivisionController::class, 'store']);
+Route::put('division/{division}', [DivisionController::class, 'update']);
+Route::delete('delete-division/{division}', [DivisionController::class, 'destroy']);
 Auth::routes();
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

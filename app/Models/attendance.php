@@ -14,7 +14,6 @@ class attendance extends Model
     protected $primaryKey = 'id';
     public $incrementing = false;
     public $keyType = 'char';
-
     protected $guarded = [];
 
     /**

@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\AttendanceRuleController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('attendance-rules', [AttendanceRuleController::class, 'index']);
+Route::post('attendance-rules', [AttendanceRuleController::class, 'store']);
