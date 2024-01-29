@@ -7,11 +7,15 @@ use App\Models\attendance;
 use App\Models\AttendanceRule;
 use App\Models\division;
 use App\Models\Employe;
+use App\Models\Employee;
+use App\Models\User;
 use App\Observers\AttendanceDetailObserver;
 use App\Observers\AttendanceObserver;
 use App\Observers\AttendanceRuleObserver;
 use App\Observers\DivisionObserver;
+use App\Observers\EmployeeObserver;
 use App\Observers\EmployeObserver;
+use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -35,11 +39,12 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Employe::observe(EmployeObserver::class);
         division::observe(DivisionObserver::class);
         attendance::observe(AttendanceObserver::class);
         attendace_detail::observe(AttendanceDetailObserver::class);
         AttendanceRule::observe(AttendanceRuleObserver::class);
+        Employee::observe(EmployeeObserver::class);
+        User::observe(UserObserver::class);
     }
 
     /**

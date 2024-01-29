@@ -3,14 +3,22 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Base\Interfaces\HasOneEmployee;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasOneEmployee
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    public $keyType = 'char';
 
     /**
      * The attributes that are mass assignable.
@@ -42,4 +50,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * employee
+     *
+     * @return HasOne
+     */
+    public function employee(): HasOne
+    {
+        return $this->hasOne(Employee::class);
+    }
 }

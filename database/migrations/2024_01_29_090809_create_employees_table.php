@@ -12,18 +12,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employes', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('email');
             $table->string('nik');
             $table->string('position');
+            $table->string('photo')->nullable();
             $table->enum('gender',[GenderEnum::MALE->value,GenderEnum::FEMALE->value]);
             $table->string('wages');
             $table->string('rfid')->nullable();
             $table->string('address');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('date_of_birth');
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->date('date_of_birth');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employes');
+        Schema::dropIfExists('employees');
     }
 };
