@@ -44,6 +44,33 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee): JsonResponse
     {
-        return response()->json(['result' => EmployeeResource::make($employee)]);
+        return response()->json(['result' => EmployeeResource::make($employee)], 200);
+    }
+
+    /**
+     * update
+     *
+     * @param  mixed $employee
+     * @param  mixed $request
+     * @return JsonResponse
+     */
+    public function update(Employee $employee, EmployeeRequest $request): JsonResponse
+    {
+        $data = $this->service->update($request, $employee);
+        $this->employee->update($employee->id, $data);
+        return response()->json(['message' => 'Berhasil mengubah pengguna'], 200);
+    }
+
+    /**
+     * destroy
+     *
+     * @param  mixed $employee
+     * @return JsonResponse
+     */
+    public function destroy(Employee $employee): JsonResponse
+    {
+        if ($employee->photo != null) $this->service->remove($employee->photo);
+        $this->user->delete($employee->user->id);
+        return response()->json(['message' => 'Berhasil menghapus pengguna'], 200);
     }
 }

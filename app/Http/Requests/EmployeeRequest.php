@@ -16,7 +16,7 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $this->user->id,
+            'email' => 'required|email|unique:users,email,' . $this->employee->user->id,
             'password' => 'required|min:6',
             'nik' => 'required',
             'position' => 'required',
