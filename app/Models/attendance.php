@@ -23,7 +23,7 @@ class attendance extends Model
      */
     public function employe(): BelongsTo
     {
-        return $this->belongsTo(Employe::class, 'employe_id');
+        return $this->belongsTo(Employee::class, 'employee_id');
     }
 
     /**
