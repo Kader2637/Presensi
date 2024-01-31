@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Contracts\Interfaces;
+namespace App\Contracts\Repositories;
 
+use App\Contracts\Interfaces\UserInterface;
 use App\Contracts\Repositories\BaseRepository;
 use App\Models\User;
 
-class UserRepository extends BaseRepository implements EmployeeInterface
+class UserRepository extends BaseRepository implements UserInterface
 {
     public function __construct(User $user)
     {

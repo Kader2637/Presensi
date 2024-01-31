@@ -6,10 +6,10 @@ use App\Contracts\Interfaces\AttendanceRuleInterface;
 use App\Contracts\Interfaces\DivisionInterface;
 use App\Contracts\Interfaces\EmployeeInterface;
 use App\Contracts\Interfaces\UserInterface;
-use App\Contracts\Interfaces\UserRepository;
 use App\Contracts\Repositories\AttendanceRuleRepository;
 use App\Contracts\Repositories\DivisionRepository;
 use App\Contracts\Repositories\EmployeeRepository;
+use App\Contracts\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
