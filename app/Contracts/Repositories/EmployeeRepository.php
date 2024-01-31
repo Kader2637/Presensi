@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Contracts\Interfaces;
+namespace App\Contracts\Repositories;
 
+use App\Contracts\Interfaces\EmployeeInterface;
 use App\Contracts\Repositories\BaseRepository;
 use App\Models\Employee;
 
