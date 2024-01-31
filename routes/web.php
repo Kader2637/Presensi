@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\DivisionController;
-use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('dashboard', function () {
     return view('dashboard');
 });
-Route::get('employee', [EmployeController::class, 'index']);
+Route::get('employee', [EmployeeController::class, 'index']);
 Route::get('absensi', function () {
     return view('menu.absensi');
 });
