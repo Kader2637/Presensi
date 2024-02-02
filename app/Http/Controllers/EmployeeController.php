@@ -39,6 +39,7 @@ class EmployeeController extends Controller
         $data['password'] = Hash::make("password");
         $data['user_id'] = $this->user->store($data)->id;
         $this->employee->store($data);
+        dd($request->all());
         return redirect()->back()->with('success', 'Berhasil menambah employee');
     }
 

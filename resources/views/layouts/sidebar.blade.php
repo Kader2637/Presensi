@@ -6,7 +6,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu">Menu</li>
+                <li class="menu-title" key="t-menu">Dashboard</li>
 
                 <li>
                     <a href="/dashboard" class="waves-effect">
@@ -16,7 +16,7 @@
                 </li>
             </ul>
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu">User</li>
+                <li class="menu-title" key="t-menu">Menu</li>
 
                 <li>
                     <a href="/employee" class="waves-effect">
@@ -26,12 +26,10 @@
                 </li>
             </ul>
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu">Absensi</li>
-
                 <li>
                     <a href="/absensi" class="waves-effect">
                         <i class="bx bx-user"></i>
-                        <span key="t-chat">Pegawai</span>
+                        <span key="t-chat">Absensi</span>
                     </a>
                 </li>
             </ul>

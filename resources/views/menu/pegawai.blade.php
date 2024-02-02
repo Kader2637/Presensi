@@ -24,41 +24,83 @@
                                 <label for="">Nama</label>
                                 <input type="text" name="name" class="form-control">
                                 @error('name')
-                                    {{ $message }}
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
                                 @enderror
                             </div>
                             <div class="col-12 col-xl-4">
                                 <label for="">Email</label>
                                 <input type="gmail" name="email" class="form-control">
+                                @error('email')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="col-12 col-xl-4">
                                 <label for="">NIK</label>
                                 <input type="text" name="nik" class="form-control">
+                                @error('nik')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="col-12 col-xl-4 mt-2">
                                 <label for="">Jabatan</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="position" class="form-control">
+                                @error('position')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="col-12 col-xl-4 mt-2">
                                 <label for="">Jenis Kelamin</label><br>
                                 <input type="radio" name="gender" value="male"> Laki-Laki
                                 <input type="radio" name="gender" value="female"> Perempuan
+                                @error('gender')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="col-12 col-xl-4 mt-2">
                                 <label for="">Gaji</label>
                                 <input type="number" name="wages" class="form-control">
+                                @error('wages')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="col-12 col-xl-6 mt-2">
                                 <label for="">RFID</label>
                                 <input type="text" name="rfid" class="form-control">
+                                @error('rfid')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="col-12 col-xl-6 mt-2">
                                 <label for="">Tanggal Lahir</label>
                                 <input type="date" name="date_of_birth" class="form-control">
+                                @error('date_of_birth')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                             <div class="col-12 mt-2">
                                 <label for="">Alamat</label>
-                                <textarea name="addres" class="form-control" id="" ></textarea>
+                                <textarea name="address" class="form-control" id=""></textarea>
+                                @error('address')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -71,14 +113,23 @@
         </div>
     </div>
     {{-- end modal  --}}
-
+    @foreach(['name', 'email', 'nik', 'address', 'date_of_birth', 'rfid', 'wages', 'gender'] as $field)
+    @error($field)
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="mdi mdi-block-helper me-2"></i>
+            {{ $message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @enderror
+@endforeach
     <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-3">
                         <h4 class="card-title mb-4">Pegawai</h4>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" type="button">Tambah</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"
+                            type="button">Tambah</button>
                     </div>
                     <div data-simplebar style="max-height: 376px;">
                         <div class="vstack gap-4">
@@ -97,34 +148,35 @@
                                     </thead>
                                     <tbody>
                                         @forelse ($employees as $employes)
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Abdul Kader</td>
-                                            <td>abdulkader0126@gmail.com</td>
-                                            <td>K 01 K</td>
-                                            <td>Programmer</td>
-                                            <td>Laki-Laki</td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <button class="btn btn-info">Detail</button>
-                                                    <button class="btn btn-warning">Edit</button>
-                                                    <button class="btn btn-danger">Hapus</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Abdul Kader</td>
+                                                <td>abdulkader0126@gmail.com</td>
+                                                <td>K 01 K</td>
+                                                <td>Programmer</td>
+                                                <td>Laki-Laki</td>
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                        <button class="btn btn-info">Detail</button>
+                                                        <button class="btn btn-warning">Edit</button>
+                                                        <button class="btn btn-danger">Hapus</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         @empty
-                                        <tr>
-                                            <td colspan="9">
-                                                <div class="d-flex justify-content-center">
-                                                    <img src="{{ asset('nodata.png') }}" width="300px
+                                            <tr>
+                                                <td colspan="9">
+                                                    <div class="d-flex justify-content-center">
+                                                        <img src="{{ asset('nodata.png') }}"
+                                                            width="300px
                                                     "
-                                                        alt="">
-                                                </div>
-                                                <p class="text-center fs-5 mt-4" style="font-weight:700">
-                                                    Data Masih Kosong
-                                                </p>
-                                            </td>
-                                        </tr>
+                                                            alt="">
+                                                    </div>
+                                                    <p class="text-center fs-5 mt-4" style="font-weight:700">
+                                                        Data Masih Kosong
+                                                    </p>
+                                                </td>
+                                            </tr>
                                         @endforelse
                                     </tbody>
                                 </table>

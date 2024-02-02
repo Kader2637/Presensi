@@ -166,11 +166,11 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © Skote.
+                            </script> © 0.1 version.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Yudas Malabi
+                                Design & Develop by PKL HUMMATECH
                             </div>
                         </div>
                     </div>
