@@ -2,21 +2,24 @@
 
 namespace App\Providers;
 
-use App\Contracts\Interfaces\AttendanceRuleInterface;
+use Illuminate\Support\ServiceProvider;
+use App\Contracts\Interfaces\UserInterface;
+use App\Contracts\Repositories\UserRepository;
 use App\Contracts\Interfaces\DivisionInterface;
 use App\Contracts\Interfaces\EmployeeInterface;
-use App\Contracts\Interfaces\UserInterface;
-use App\Contracts\Repositories\AttendanceRuleRepository;
+use App\Contracts\Interfaces\PositionInterface;
 use App\Contracts\Repositories\DivisionRepository;
 use App\Contracts\Repositories\EmployeeRepository;
-use App\Contracts\Repositories\UserRepository;
-use Illuminate\Support\ServiceProvider;
+use App\Contracts\Repositories\PositionRepository;
+use App\Contracts\Interfaces\AttendanceRuleInterface;
+use App\Contracts\Repositories\AttendanceRuleRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
     private array $register = [
         EmployeeInterface::class => EmployeeRepository::class,
         DivisionInterface::class => DivisionRepository::class,
+        PositionInterface::class => PositionRepository::class,
         AttendanceRuleInterface::class => AttendanceRuleRepository::class,
         UserInterface::class => UserRepository::class,
     ];

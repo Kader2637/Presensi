@@ -35,6 +35,17 @@
                     </a>
                 </li>
             </ul>
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title" key="t-menu">Absensi</li>
+
+                <li>
+                    <a href="/position" class="waves-effect">
+                        <i class="bx bx-user"></i>
+                        <span key="t-chat">Jabatan</span>
+                    </a>
+                </li>
+            </ul>
+            
         </div>
         <!-- Sidebar -->
     </div>

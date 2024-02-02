@@ -22,6 +22,10 @@ Route::get('/', function () {
 Route::get('dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('position', [PositionController::class, 'index']);
+Route::post('position', [PositionController::class, 'store']);
+
 Route::get('employee', [EmployeeController::class, 'index']);
 Route::post('employe' , [EmployeeController::class , 'store'])->name('employe.store');
 Route::get('absensi', function () {
