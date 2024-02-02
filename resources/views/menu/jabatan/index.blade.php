@@ -30,7 +30,8 @@
                     <div class="px-4 py-3 border-top d-flex ">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-0">
-                                <i class= "bx bx-calendar me-0"></i> {{ \Carbon\Carbon::parse($position->created_at)->translatedFormat('d F Y') }}
+                                <i class= "bx bx-calendar me-0"></i>
+                                {{ \Carbon\Carbon::parse($position->created_at)->translatedFormat('d F Y') }}
                             </li>
                         </ul>
                         <div class="d-flex ms-auto gap-2">
@@ -46,8 +47,7 @@
                                 </button>
                             </span>
                             <span>
-                                <button data-bs-toggle="modal" class=" btn btn-sm btn-danger btn-delete"
-                                    style="">
+                                <button data-bs-toggle="modal" class=" btn btn-sm btn-danger btn-delete" style="">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 48 48">
                                         <defs>
@@ -71,6 +71,14 @@
                 </div>
             </div>
         @empty
+            <div class="d-flex justify-content-center">
+                <div class="">
+                    <img src="{{ asset('nodata.png') }}" width="300px" height="300px" alt="" srcset="">
+                    <p class="fs-5 text-center mt-4 text-dark" style="font-weight: 500">
+                        Data Tidak Tersedia
+                    </p>
+                </div>
+            </div>
         @endforelse
     </div>
 
