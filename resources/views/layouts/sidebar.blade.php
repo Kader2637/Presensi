@@ -34,8 +34,6 @@
                 </li>
             </ul>
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu">Absensi</li>
-
                 <li>
                     <a href="/position" class="waves-effect">
                         <i class="bx bx-user"></i>
@@ -43,7 +41,7 @@
                     </a>
                 </li>
             </ul>
-            
+
         </div>
         <!-- Sidebar -->
     </div>
