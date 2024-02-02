@@ -47,22 +47,22 @@
                                 </button>
                             </span>
                             <span>
-                                <button data-bs-toggle="modal" class=" btn btn-sm btn-danger btn-delete" style="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 48 48">
-                                        <defs>
-                                            <mask id="ipSDelete0">
-                                                <g fill="none" stroke-linejoin="round" stroke-width="4">
-                                                    <path fill="#fff" stroke="#fff" d="M9 10v34h30V10z" />
-                                                    <path stroke="#000" stroke-linecap="round" d="M20 20v13m8-13v13" />
-                                                    <path stroke="#fff" stroke-linecap="round" d="M4 10h40" />
-                                                    <path fill="#fff" stroke="#fff" d="m16 10l3.289-6h9.488L32 10z" />
-                                                </g>
-                                            </mask>
-                                        </defs>
-                                        <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSDelete0)" />
-                                    </svg>
-                                </button>
+                              <button data-bs-toggle="modal" class=" btn btn-sm btn-danger btn-delete"data-id="{{ $position->id }}" id="{{ $position->id }}" style="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 48 48">
+                                    <defs>
+                                        <mask id="ipSDelete0">
+                                            <g fill="none" stroke-linejoin="round" stroke-width="4">
+                                                <path fill="#fff" stroke="#fff" d="M9 10v34h30V10z" />
+                                                <path stroke="#000" stroke-linecap="round" d="M20 20v13m8-13v13" />
+                                                <path stroke="#fff" stroke-linecap="round" d="M4 10h40" />
+                                                <path fill="#fff" stroke="#fff" d="m16 10l3.289-6h9.488L32 10z" />
+                                            </g>
+                                        </mask>
+                                    </defs>
+                                    <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSDelete0)" />
+                                </svg>
+                              </button>   
                             </span>
 
                         </div>
@@ -106,4 +106,30 @@
         </div>
     </div>
     {{-- end modal  --}}
+    <x-delete-modal-component />
+@endsection
+@section('script')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
+    <script>
+        $('.btn-edit').click(function() {
+            var id = $(this).data('id'); // Mengambil nilai id dari tombol yang diklik
+            var name = $(this).data('name'); // Mengambil nilai name dari tombol yang diklik
+            $('#form-update').attr('action', '/position/' + id); // Mengubah nilai atribut action form
+            $('.name').val(name);
+            $('#modal-edit').modal('show');
+        });
+        $('.btn-delete').click(function() {
+            var id = $(this).data('id'); // Mengambil nilai id dari tombol yang diklik
+            $('#form-delete').attr('action', '/delete-position/' + id); // Mengubah nilai atribut action form
+            $('#modal-delete').modal('show');
+        });
+    </script>
 @endsection

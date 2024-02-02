@@ -32,7 +32,7 @@ class PositionController extends Controller
     public function store(StorePositionRequest $request)
     {
         $this->position->store($request->validated());
-        return back()->with('success' , 'Divisi Berhasil Ditambahkan');
+        return back()->with('success' , 'Position Berhasil Ditambahkan');
     }
 
     /**
@@ -64,6 +64,7 @@ class PositionController extends Controller
      */
     public function destroy(Position $position)
     {
-        //
+        $this->position->delete($position->id);
+        return back()->with('success' , 'Position Berhasil Di Hapus');
     }
 }
