@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::get('dashboard', function () {
     return view('dashboard');
 });
 Route::get('employee', [EmployeeController::class, 'index']);
+Route::post('employe' , [EmployeeController::class , 'store'])->name('employe.store');
 Route::get('absensi', function () {
     return view('menu.absensi');
 });

@@ -9,51 +9,69 @@
     </div>
     {{-- modal  --}}
     <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Default Modal Heading</h5>
+                    <h5 class="modal-title" id="myModalLabel">Tambah pegawai</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <h5>Overflowing text to show scroll behavior</h5>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Vivamus sagittis lacus vel
-                        augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur.
-                        Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor
-                        fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Vivamus sagittis lacus vel
-                        augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur.
-                        Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor
-                        fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
-                </div>
+                <form action="{{ route('employe.store') }}" method="post">
+                    @csrf
+                    @method('POST')
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 col-xl-4">
+                                <label for="">Nama</label>
+                                <input type="text" name="name" class="form-control">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="col-12 col-xl-4">
+                                <label for="">Email</label>
+                                <input type="gmail" name="email" class="form-control">
+                            </div>
+                            <div class="col-12 col-xl-4">
+                                <label for="">NIK</label>
+                                <input type="text" name="nik" class="form-control">
+                            </div>
+                            <div class="col-12 col-xl-4 mt-2">
+                                <label for="">Jabatan</label>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="col-12 col-xl-4 mt-2">
+                                <label for="">Jenis Kelamin</label><br>
+                                <input type="radio" name="gender" value="male"> Laki-Laki
+                                <input type="radio" name="gender" value="female"> Perempuan
+                            </div>
+                            <div class="col-12 col-xl-4 mt-2">
+                                <label for="">Gaji</label>
+                                <input type="number" name="wages" class="form-control">
+                            </div>
+                            <div class="col-12 col-xl-6 mt-2">
+                                <label for="">RFID</label>
+                                <input type="text" name="rfid" class="form-control">
+                            </div>
+                            <div class="col-12 col-xl-6 mt-2">
+                                <label for="">Tanggal Lahir</label>
+                                <input type="date" name="date_of_birth" class="form-control">
+                            </div>
+                            <div class="col-12 mt-2">
+                                <label for="">Alamat</label>
+                                <textarea name="addres" class="form-control" id="" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     {{-- end modal  --}}
+
     <div class="row">
         <div class="col">
             <div class="card">
@@ -78,7 +96,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($employes as $employe)  
+                                        @forelse ($employees as $employes)
                                         <tr>
                                             <td>1</td>
                                             <td>Abdul Kader</td>
@@ -96,8 +114,15 @@
                                         </tr>
                                         @empty
                                         <tr>
-                                            <td colspan="8">
-                                                Data Masih Kosong
+                                            <td colspan="9">
+                                                <div class="d-flex justify-content-center">
+                                                    <img src="{{ asset('nodata.png') }}" width="300px
+                                                    "
+                                                        alt="">
+                                                </div>
+                                                <p class="text-center fs-5 mt-4" style="font-weight:700">
+                                                    Data Masih Kosong
+                                                </p>
                                             </td>
                                         </tr>
                                         @endforelse

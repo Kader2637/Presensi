@@ -29,7 +29,7 @@ class EmployeeController extends Controller
     public function index(): View
     {
         $employees = $this->employee->get();
-        return view('', compact('employees'));
+        return view('menu.pegawai', compact('employees'));
     }
 
     public function store(EmployeeRequest $request): RedirectResponse
