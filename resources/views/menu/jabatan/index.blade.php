@@ -36,15 +36,10 @@
                         </ul>
                         <div class="d-flex ms-auto gap-2">
                             <span>
-                                <button data-bs-toggle="modal" class=" btn btn-sm btn-info btn-edit"style="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 48 48">
-                                        <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
-                                            <path stroke-linecap="round" d="M7 42h36" />
-                                            <path fill="currentColor" d="M11 26.72V34h7.317L39 13.308L31.695 6z" />
-                                        </g>
-                                    </svg>
-                                </button>
+                              <button class="btn btn-sm btn-info btn-edit" id="{{ $position->id }}"
+                                data-id="{{ $position->id }}" data-name="{{ $position->name }}">
+                                Edit
+                              </button>
                             </span>
                             <span>
                               <button data-bs-toggle="modal" class=" btn btn-sm btn-danger btn-delete"data-id="{{ $position->id }}" id="{{ $position->id }}" style="">
@@ -82,7 +77,7 @@
         @endforelse
     </div>
 
-    {{-- modal  --}}
+    {{-- modal tambah  --}}
     <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -96,6 +91,30 @@
                     <div class="modal-body">
                         <label for="">Nama</label>
                         <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- end modal  --}}
+    {{-- modal edit --}}
+    <div id="modal-edit" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Update Jabatan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form-update" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <label for="">Nama</label>
+                        <input type="text" name="name" class="form-control name">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>

@@ -56,7 +56,8 @@ class PositionController extends Controller
      */
     public function update(UpdatePositionRequest $request, Position $position)
     {
-        //
+        $this->position->update($position->id , $request->all());
+        return back()->with('success' , 'Position Berhasil Di Ubah');
     }
 
     /**

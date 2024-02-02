@@ -26,6 +26,7 @@ Route::get('dashboard', function () {
 
 Route::get('position', [PositionController::class, 'index']);
 Route::post('position', [PositionController::class, 'store']);
+Route::put('position/{position}', [PositionController::class, 'update']);
 Route::delete('delete-position/{position}', [PositionController::class, 'destroy']);
 
 Route::get('employee', [EmployeeController::class, 'index']);
