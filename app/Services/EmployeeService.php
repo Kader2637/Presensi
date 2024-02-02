@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Enums\UploadDiskEnum;
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Models\Employee;
 use App\Traits\UploadTrait;
 
@@ -33,7 +34,7 @@ class EmployeeService {
      * @param  mixed $employee
      * @return array
      */
-    public function update(EmployeeRequest $request, Employee $employee): array
+    public function update(EmployeeUpdateRequest $request, Employee $employee): array
     {
         $data = $request->validated();
         if ($request->has('photo')) {

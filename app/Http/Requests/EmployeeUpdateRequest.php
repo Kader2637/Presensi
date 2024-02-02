@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeRequest extends FormRequest
+class EmployeeUpdateRequest extends FormRequest
 {
 
     /**
@@ -16,7 +16,7 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:users,email,' .  $this->employee->user->id,
             'password' => 'required|min:6',
             'nik' => 'required',
             'position' => 'required',

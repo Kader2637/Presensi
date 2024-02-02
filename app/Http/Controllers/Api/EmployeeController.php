@@ -6,6 +6,7 @@ use App\Contracts\Interfaces\EmployeeInterface;
 use App\Contracts\Interfaces\UserInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use App\Services\EmployeeService;
@@ -54,7 +55,7 @@ class EmployeeController extends Controller
      * @param  mixed $request
      * @return JsonResponse
      */
-    public function update(Employee $employee, EmployeeRequest $request): JsonResponse
+    public function update(Employee $employee, EmployeeUpdateRequest $request): JsonResponse
     {
         $data = $this->service->update($request, $employee);
         $this->employee->update($employee->id, $data);
