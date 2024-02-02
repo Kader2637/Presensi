@@ -9,7 +9,9 @@ use App\Http\Requests\EmployeeRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use App\Services\EmployeeService;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 
 class EmployeeController extends Controller
 {
@@ -23,17 +25,18 @@ class EmployeeController extends Controller
         $this->employee = $employee;
     }
 
-    public function index(): JsonResponse
+    public function index(): View
     {
-        return response()->json(['result' => EmployeeResource::collection($this->employee->get())], 200);
+        $employees = $this->employee->get();
+        return view('', compact('employees'));
     }
 
-    public function store(EmployeeRequest $request): JsonResponse
+    public function store(EmployeeRequest $request): RedirectResponse
     {
         $data = $this->service->store($request);
         $data['user_id'] = $this->user->store($data);
         $this->employee->store($data);
-        return response()->json(['message' => 'Berhasil menambah pengguna'], 200);
+        return redirect()->back()->with('success', 'Berhasil menambah employee');
     }
 
     /**
@@ -42,9 +45,9 @@ class EmployeeController extends Controller
      * @param  mixed $employee
      * @return JsonResponse
      */
-    public function show(Employee $employee): JsonResponse
+    public function show(Employee $employee): View
     {
-        return response()->json(['result' => EmployeeResource::make($employee)], 200);
+        return view('', compact('employee'));
     }
 
     /**
@@ -54,11 +57,11 @@ class EmployeeController extends Controller
      * @param  mixed $request
      * @return JsonResponse
      */
-    public function update(Employee $employee, EmployeeRequest $request): JsonResponse
+    public function update(Employee $employee, EmployeeRequest $request): RedirectResponse
     {
         $data = $this->service->update($request, $employee);
         $this->employee->update($employee->id, $data);
-        return response()->json(['message' => 'Berhasil mengubah pengguna'], 200);
+        return redirect()->back()->with('success', 'Berhasil merubah employee');
     }
 
     /**
@@ -67,10 +70,10 @@ class EmployeeController extends Controller
      * @param  mixed $employee
      * @return JsonResponse
      */
-    public function destroy(Employee $employee): JsonResponse
+    public function destroy(Employee $employee): RedirectResponse
     {
         if ($employee->photo != null) $this->service->remove($employee->photo);
         $this->user->delete($employee->user->id);
-        return response()->json(['message' => 'Berhasil menghapus pengguna'], 200);
+        return redirect()->back()->with('success', 'Berhasil menghapus employee');
     }
 }
