@@ -13,6 +13,7 @@ use App\Services\EmployeeService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -35,7 +36,8 @@ class EmployeeController extends Controller
     public function store(EmployeeRequest $request): RedirectResponse
     {
         $data = $this->service->store($request);
-        $data['user_id'] = $this->user->store($data);
+        $data['password'] = Hash::make("password");
+        $data['user_id'] = $this->user->store($data)->id;
         $this->employee->store($data);
         return redirect()->back()->with('success', 'Berhasil menambah employee');
     }

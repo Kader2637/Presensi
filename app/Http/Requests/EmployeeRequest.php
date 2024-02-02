@@ -17,7 +17,6 @@ class EmployeeRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
             'nik' => 'required',
             'position' => 'required',
             'photo' => 'nullable|image',

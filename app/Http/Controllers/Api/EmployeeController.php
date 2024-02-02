@@ -11,6 +11,7 @@ use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use App\Services\EmployeeService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -32,7 +33,8 @@ class EmployeeController extends Controller
     public function store(EmployeeRequest $request): JsonResponse
     {
         $data = $this->service->store($request);
-        $data['user_id'] = $this->user->store($data);
+        $data['password'] = Hash::make("password");
+        $data['user_id'] = $this->user->store($data)->id;
         $this->employee->store($data);
         return response()->json(['message' => 'Berhasil menambah pengguna'], 200);
     }
