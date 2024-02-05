@@ -27,7 +27,14 @@ class EmployeeController extends Controller
 
     public function index(): JsonResponse
     {
-        return response()->json(['result' => EmployeeResource::collection($this->employee->get())], 200);
+        $employees = $this->employee->get();
+
+        $response = [
+            'total' => count($employees),
+            'result' => EmployeeResource::collection($employees)
+        ];
+
+        return response()->json($response, 200);
     }
 
     public function store(EmployeeRequest $request): JsonResponse

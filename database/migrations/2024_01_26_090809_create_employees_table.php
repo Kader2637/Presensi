@@ -16,6 +16,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('nik');
             $table->string('name');
+            $table->string('password');
+            $table->string('email');
             $table->string('position');
             $table->string('photo')->nullable();
             $table->enum('gender',[GenderEnum::MALE->value,GenderEnum::FEMALE->value]);
