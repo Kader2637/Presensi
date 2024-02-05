@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('email');
+            $table->string('no');
             $table->string('position');
             $table->string('photo')->nullable();
             $table->enum('gender',[GenderEnum::MALE->value,GenderEnum::FEMALE->value]);

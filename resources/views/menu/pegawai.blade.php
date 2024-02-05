@@ -75,7 +75,7 @@
                                     </p>
                                 @enderror
                             </div>
-                            <div class="col-12 col-xl-6 mt-2">
+                            <div class="col-12 col-xl-4 mt-2">
                                 <label for="">RFID</label>
                                 <input type="text" name="rfid" class="form-control">
                                 @error('rfid')
@@ -84,10 +84,19 @@
                                     </p>
                                 @enderror
                             </div>
-                            <div class="col-12 col-xl-6 mt-2">
+                            <div class="col-12 col-xl-4 mt-2">
                                 <label for="">Tanggal Lahir</label>
                                 <input type="date" name="date_of_birth" class="form-control">
                                 @error('date_of_birth')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
+                            </div>
+                            <div class="col-12 col-xl-4 mt-2">
+                                <label for="">No Telephone</label>
+                                <input type="number" name="no" class="form-control">
+                                @error('no')
                                     <p class="text-danger">
                                         {{ $message }}
                                     </p>

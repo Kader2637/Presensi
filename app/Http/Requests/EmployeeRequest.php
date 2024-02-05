@@ -20,6 +20,7 @@ class EmployeeRequest extends FormRequest
             'nik' => 'required',
             'position' => 'required',
             'photo' => 'nullable|image',
+            'no' => 'required',
             'gender' => 'required',
             'wages' => 'required',
             'rfid' => 'nullable',
