@@ -32,832 +32,8 @@
                             <a class="nav-link" data-bs-toggle="tab" href="#jumat" role="tab">Jumat</a>
                         </li>
                     </ul>
-                    <div class="tab-content mt-4">
-                        <div class="tab-pane active" id="senin" role="tabpanel">
-                            <div class="table-responsive" data-simplebar style="max-height: 330px;">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="day" value="monday">
-                                    @csrf
-                                    @method('POST')
-                                    <table class="table align-middle table-nowrap">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
+                    <div class="tab-content mt-4" id="jadwal">
 
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_starts" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_ends" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_starts" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_ends" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_starts" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_ends" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-info">Simpan</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="selasa" role="tabpanel">
-                            <div class="table-responsive" data-simplebar style="max-height: 330px;">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="day" value="tuesday">
-                                    @csrf
-                                    @method('POST')
-                                    <table class="table align-middle table-nowrap">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_ends" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-info">Simpan</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="rabu" role="tabpanel">
-                            <div class="table-responsive" data-simplebar style="max-height: 330px;">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="day" value="tuesday">
-                                    @csrf
-                                    @method('POST')
-                                    <table class="table align-middle table-nowrap">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_ends" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-info">Simpan</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="kamis" role="tabpanel">
-                            <div class="table-responsive" data-simplebar style="max-height: 330px;">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="day" value="tuesday">
-                                    @csrf
-                                    @method('POST')
-                                    <table class="table align-middle table-nowrap">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_ends" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-info">Simpan</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="jumat" role="tabpanel">
-                            <div class="table-responsive" data-simplebar style="max-height: 330px;">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="day" value="tuesday">
-                                    @csrf
-                                    @method('POST')
-                                    <table class="table align-middle table-nowrap">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_ends" class="form-control"
-                                                            placeholder="Sampai" value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_starts" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_ends" class="form-control"
-                                                            placeholder="Sampai"
-                                                            value="">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-info">Simpan</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -930,7 +106,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title mb-4">Siswa Absensi</h4>
+                            <h4 class="card-title mb-4">Pegawai Terlambat</h4>
                             <div data-simplebar style="max-height: 376px;">
                                 <div class="vstack gap-4">
                                     <div class="table-responsive">
@@ -963,31 +139,36 @@
                                                         <div class="d-flex">
                                                             <div class="flex-shrink-0 me-2">
                                                                 <div class="avatar-xs">
-                                                                    <span class="avatar-title rounded-circle bg-success text-white font-size-16">
+                                                                    <span
+                                                                        class="avatar-title rounded-circle bg-success text-white font-size-16">
                                                                         A
                                                                     </span>
                                                                 </div>
                                                             </div>
                                                             <div class="ms-2 flex-grow-1">
-                                                                <h6 class="mb-1 font-size-15 mt-2"><p
-                                                                        class="text-body">Abdul Kader</p></h6>
+                                                                <h6 class="mb-1 font-size-15 mt-2">
+                                                                    <p class="text-body">Abdul Kader</p>
+                                                                </h6>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <h6 class="mb-1 font-size-15 mt-2"><p
-                                                            class="text-body">Smkn 1 Kraksaan</p></h6>
+                                                        <h6 class="mb-1 font-size-15 mt-2">
+                                                            <p class="text-body">Smkn 1 Kraksaan</p>
+                                                        </h6>
                                                     </td>
                                                     <td>
-                                                        <h6 class="mb-1 font-size-15 mt-2"><p
-                                                            class="text-body">12 januari 2023</p></h6>
+                                                        <h6 class="mb-1 font-size-15 mt-2">
+                                                            <p class="text-body">12 januari 2023</p>
+                                                        </h6>
                                                     </td>
                                                     <td>
-                                                        <h6 class="mb-1 font-size-15 mt-2"><p
-                                                            class="text-body text-center">12:00</p></h6>
+                                                        <h6 class="mb-1 font-size-15 mt-2">
+                                                            <p class="text-body text-center">12:00</p>
+                                                        </h6>
                                                     </td>
                                                 </tr>
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -996,92 +177,218 @@
                         </div>
                     </div>
                 </div>
-            </div>            {{--
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-sm-flex flex-wrap">
-                        <h4 class="card-title mb-4">Statistik Siswa Magang</h4>
-                        <div class="ms-auto">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Minggu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Bulan</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">Tahun</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div id="stacked-column-chart" class="apex-charts"
-                        data-colors='["--bs-primary", "--bs-warning", "--bs-success"]' dir="ltr"></div>
-                </div>
-            </div> --}}
-        </div>
-    </div>
-    <!-- end row -->
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Pegawai Terlambat</h4>
-                    <div data-simplebar style="max-height: 376px;">
-                        <div class="vstack gap-4">
-                            <div class="table-responsive">
-                            <table id="example" class="table table-striped" style="width:100%">
-                                <thead>
-                                  <tr>
-                                    <th style="background-color: #1B3061" class="text-white">No</th>
-                                    <th style="background-color: #1B3061" class="text-white">Siswa</th>
-                                    <th style="background-color: #1B3061" class="text-white">Sekolah</th>
-                                    {{-- <th style="background-color: #1B3061" class="text-white">Tanggal</th> --}}
-                                    <th style="background-color: #1B3061" class="text-white">Keterangan</th>
-                                    <th style="background-color: #1B3061" class="text-white">Masuk</th>
-                                    <th style="background-color: #1B3061" class="text-white">Istirahat</th>
-                                    <th style="background-color: #1B3061" class="text-white">Kembali</th>
-                                    <th style="background-color: #1B3061" class="text-white">Pulang</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>1</td>
-                                    <td>Abdul Kader</td>
-                                    <td>Smkn 1 kraksaan</td>
-                                    <td>
-                                      <div class="btn btn-soft-success waves-effect waves-light">
-                                        18 : 00
-                                      </div>
-                                    </td>
-                                    <td>
-                                      <div class="btn btn-soft-success waves-effect waves-light">
-                                        18 : 00
-                                      </div>
-                                    </td>
-                                    <td>
-                                      <div class="btn btn-soft-success waves-effect waves-light">
-                                        18 : 00
-                                      </div>
-                                    </td>
-                                    <td>
-                                      <div class="btn btn-soft-success waves-effect waves-light">
-                                        18 : 00
-                                      </div>
-                                    </td>
-                                    <td>
-                                      <div class="btn btn-soft-success waves-effect waves-light">
-                                        18 : 00
-                                      </div>
-                                    </td>
-                                </tbody>
-                              </table>      
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        get(1)
+        function get(page) {
+    const token = localStorage.getItem('token');
+    $.ajax({
+        url: "https://pkl.hummatech.com/api/entry-time",
+        type: 'GET',
+        dataType: "JSON",
+        data: {
+            pagination: $('#pagination-page').val(),
+            school_year: $('#search-name').val(),
+        },
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+        beforeSend: function() {
+            $('#jadwal').html('');
+            $('#pagination').html('');
+        },
+        success: function(response) {
+            // console.log(response)
+            $('#jadwal').html('');
+            $('#loading').html('');
+            if (response.result.length > 0) {
+                var days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
+                $.each(response.result, function(index, item) {
+                    var active = (index === 0) ? 'active' : ''; // Menandai tab pane pertama sebagai aktif
+                    var tabId = days[index].toLowerCase(); // Mengkonversi nama hari menjadi lowercase
+                    var row =
+                        `<div class="tab-pane ${active}" id="${tabId}" role="tabpanel">
+                            <div class="table-responsive" data-simplebar style="max-height: 330px;">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="day" value="monday">
+                                    @csrf
+                                    @method('POST')
+                                    <table class="table align-middle table-nowrap">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkin_starts" class="form-control"
+                                                            placeholder="Sampai" value="${item.checkin_starts}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkin_ends" class="form-control"
+                                                            placeholder="Sampai" value="${item.checkin_ends}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="break_starts" class="form-control"
+                                                            placeholder="Sampai" value="${item.break_starts}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="break_ends" class="form-control"
+                                                            placeholder="Sampai" value="${item.break_ends}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="return_starts" class="form-control"
+                                                            placeholder="Sampai" value="${item.return_starts}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="return_ends" class="form-control"
+                                                            placeholder="Sampai" value="${item.return_ends}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkout_starts" class="form-control"
+                                                            placeholder="Sampai" value="${item.checkout_starts}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkout_ends" class="form-control"
+                                                            placeholder="Sampai" value="${item.checkout_ends}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>`;
+                    $('#jadwal').append(row);
+                });
+
+                $('.btn-create').click(function() {
+                    $('#form-create').trigger('reset');
+                    $('#modal-edit').modal('show');
+                });
+                $('.btn-edit').click(function() {
+                    $('#form-update').data('id', $(this).data('id'));
+                    $('.name').val($(this).data('name'));
+                    $('#modal-edit').modal('show');
+                });
+                $('.btn-delete').click(function() {
+                    $('#form-delete').data('id', $(this).data('id'));
+                    $('#modal-delete').modal('show');
+                });
+            } else {
+                $('#loading').html(showNoData('Tahun ajaran Tidak Ada!'));
+            }
+        }
+    });
+}
+    </script>
 @endsection
