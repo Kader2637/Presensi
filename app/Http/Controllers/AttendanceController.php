@@ -13,9 +13,10 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        //
+        $url = "https://pkl.hummatech.com/api/entry-time";
+        $response = file_get_contents($url);
+        dd($response);
     }
-
     /**
      * Show the form for creating a new resource.
      */

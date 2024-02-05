@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\PositionController;
@@ -39,7 +40,7 @@ Route::post('division', [DivisionController::class, 'store']);
 Route::put('division/{division}', [DivisionController::class, 'update']);
 Route::delete('delete-division/{division}', [DivisionController::class, 'destroy']);
 Auth::routes();
-
+Route::get('attendace' , [AttendanceController::class , 'index']);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
