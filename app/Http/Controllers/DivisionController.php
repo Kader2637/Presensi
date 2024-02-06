@@ -28,7 +28,7 @@ class DivisionController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**

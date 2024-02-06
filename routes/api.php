@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\AttendanceController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AttendanceRuleController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('employees', [EmployeeController::class, 'index']);
-
+Route::post('sync' , [AttendanceController::class , 'store']);
 Route::get('attendance-rules', [AttendanceRuleController::class, 'index']);
 Route::post('attendance-rules', [AttendanceRuleController::class, 'store']);

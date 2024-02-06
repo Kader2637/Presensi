@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\attendance;
+use App\Contracts\Interfaces\AttendanceInterface;
 use App\Http\Requests\StoreattendanceRequest;
 use App\Http\Requests\UpdateattendanceRequest;
+use App\Models\Attendance;
 
 class AttendanceController extends Controller
 {
+    private AttendanceInterface $attendance ;
+    public function __construct(AttendanceInterface  $attendance)
+    {
+        return $this->attendance = $attendance ;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -30,7 +36,8 @@ class AttendanceController extends Controller
      */
     public function store(StoreattendanceRequest $request)
     {
-        //
+        $this->attendance->store($request->validated());
+        return redirect()->back()->with('success' , 'Data Berhasil di sinkronisasi');
     }
 
     /**

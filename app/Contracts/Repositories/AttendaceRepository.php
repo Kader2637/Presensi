@@ -11,7 +11,7 @@ class AttendaceRepository extends BaseRepository implements AttendanceInterface
     {
         $this->model = $attendance ;
     }
-        
+
     public function get(): mixed
     {
 
@@ -19,7 +19,7 @@ class AttendaceRepository extends BaseRepository implements AttendanceInterface
 
     public function store(array $data): mixed
     {
-
+        return $this->model->query()->create($data);
     }
 }
 

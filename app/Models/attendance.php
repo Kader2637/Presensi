@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class attendance extends Model
+class Attendance extends Model
 {
     use HasFactory;
     protected $table = 'attendances';
