@@ -163,7 +163,13 @@
                                                 <td>{{ $employes->email }}</td>
                                                 <td>{{ $employes->nik }}</td>
                                                 <td>{{ $employes->position }}</td>
-                                                <td>Laki-Laki</td>
+                                                <td>
+                                                    @if ($employes->gender == 'male')
+                                                        Laki-Laki
+                                                    @else
+                                                        Perempuan
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <div class="d-flex gap-2">
                                                         <button class="btn btn-info">Detail</button>
