@@ -156,13 +156,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($employees as $employes)
+                                        @forelse ($employees as $index=>$employes)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Abdul Kader</td>
-                                                <td>abdulkader0126@gmail.com</td>
-                                                <td>K 01 K</td>
-                                                <td>Programmer</td>
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $employes->name }}</td>
+                                                <td>{{ $employes->email }}</td>
+                                                <td>{{ $employes->nik }}</td>
+                                                <td>{{ $employes->position }}</td>
                                                 <td>Laki-Laki</td>
                                                 <td>
                                                     <div class="d-flex gap-2">
