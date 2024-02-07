@@ -9,7 +9,15 @@ class AttendaceRepository extends BaseRepository implements AttendanceInterface
 {
     public function __construct(attendance $attendance)
     {
-        $this->model = $attendance ;
+        $this->model = $attendance;
+    }
+
+    public function studentAttendanceToday(mixed $id): mixed
+    {
+        return $this->model->query()
+            ->where('student_id', $id)
+            ->whereDate('created_at', now())
+            ->first();
     }
 
     public function get(): mixed

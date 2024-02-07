@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\Interfaces\AttendanceDetailInterface;
 use App\Contracts\Interfaces\AttendanceInterface;
 use App\Http\Requests\StoreattendanceRequest;
 use App\Http\Requests\UpdateattendanceRequest;
 use App\Models\Attendance;
+use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
 {
     private AttendanceInterface $attendance ;
-    public function __construct(AttendanceInterface  $attendance)
+    private AttendanceDetailInterface $attendanceDetail;
+    public function __construct(AttendanceInterface  $attendance, AttendanceDetailInterface $attendanceDetailInterface)
     {
-        return $this->attendance = $attendance ;
+        $this->attendanceDetail = $attendanceDetailInterface;
+        $this->attendance = $attendance ;
     }
     /**
      * Display a listing of the resource.
@@ -34,10 +38,21 @@ class AttendanceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreattendanceRequest $request)
+    public function store(Request $request)
     {
-        $this->attendance->store($request->validated());
-        return redirect()->back()->with('success' , 'Data Berhasil di sinkronisasi');
+        $dataJson = $request->data;
+        foreach ($dataJson as $data) {
+            if (!$attendance = $this->attendance->studentAttendanceToday($data['student_id'])) {
+                $dataAttendance['student_id'] = $data['student_id'];
+                $attendance = $this->attendance->store($dataAttendance);
+            }
+
+            $dataDetail['status'] = $data['status'];
+            $dataDetail['attendance_id'] = $attendance->id;
+            $dataDetail['created_at'] = $data['created_at'];
+            $this->attendanceDetail->store($dataDetail);
+        }
+        return response()->json(['message' => 'Berhasil menambah absensi'], 200);
     }
 
     /**

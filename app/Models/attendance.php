@@ -15,6 +15,7 @@ class Attendance extends Model
     public $incrementing = false;
     public $keyType = 'char';
     protected $guarded = [];
+    protected $fillable = ['employee_id', 'status', 'created_at'];
 
     /**
      * student
