@@ -11,12 +11,14 @@ use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
 {
-    private AttendanceInterface $attendance ;
+    private AttendanceInterface $attendance;
     private AttendanceDetailInterface $attendanceDetail;
-    public function __construct(AttendanceInterface  $attendance, AttendanceDetailInterface $attendanceDetailInterface)
+    // private AttendanceDetailInterface $attendanceDetail;
+    public function __construct(AttendanceInterface $attendance, AttendanceDetailInterface $attendanceDetailInterface)
     {
         $this->attendanceDetail = $attendanceDetailInterface;
-        $this->attendance = $attendance ;
+        // $this->attendanceDetail = $attendanceDetailInterface;
+        $this->attendance = $attendance;
     }
     /**
      * Display a listing of the resource.
@@ -42,15 +44,18 @@ class AttendanceController extends Controller
     {
         $dataJson = $request->data;
         foreach ($dataJson as $data) {
-            if (!$attendance = $this->attendance->studentAttendanceToday($data['student_id'])) {
-                $dataAttendance['student_id'] = $data['student_id'];
-                $attendance = $this->attendance->store($dataAttendance);
-            }
+            $dataAttendance['employee_id'] = $data['user_id'];
+            $dataAttendance['status'] = $data['status'];
+            $attendance = $this->attendance->store($dataAttendance);
 
-            $dataDetail['status'] = $data['status'];
-            $dataDetail['attendance_id'] = $attendance->id;
-            $dataDetail['created_at'] = $data['created_at'];
-            $this->attendanceDetail->store($dataDetail);
+            foreach ($data['detail_attendances'] as $detailAttendance) {
+                $dataAttendanceDetail['attendance_id'] = $attendance->id;
+                $dataAttendanceDetail['status'] = $detailAttendance['status'];
+                $dataAttendanceDetail['created_at'] = $detailAttendance['created_at'];
+                $dataAttendanceDetail['updated_at'] = $detailAttendance['updated_at'];
+                $this->attendanceDetail->store($dataAttendanceDetail);
+            }
+            // $this->attendanceDetail->store($dataDetail);
         }
         return response()->json(['message' => 'Berhasil menambah absensi'], 200);
     }

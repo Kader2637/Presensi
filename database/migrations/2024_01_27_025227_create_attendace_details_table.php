@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('attendace_details', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('attendance_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('attendance_id')->constrained('attendances')->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('status', ['present', 'break', 'return_break', 'return']);
             $table->timestamps();
         });

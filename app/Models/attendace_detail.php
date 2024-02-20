@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class attendace_detail extends Model
 {
     use HasFactory;
-    protected $table = 'attendances';
+    protected $table = 'attendace_details';
     protected $primaryKey = 'id';
     public $incrementing = false;
     public $keyType = 'char';
 
+    protected $fillable = ['attendance_id', 'status', 'created_at', 'updated_at'];
     protected $guarded = [];
 
     /**

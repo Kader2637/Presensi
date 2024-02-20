@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Contracts\Interfaces\AttendanceDetailInterface;
 use App\Contracts\Interfaces\AttendanceInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Contracts\Interfaces\UserInterface;
@@ -14,6 +15,8 @@ use App\Contracts\Repositories\EmployeeRepository;
 use App\Contracts\Repositories\PositionRepository;
 use App\Contracts\Interfaces\AttendanceRuleInterface;
 use App\Contracts\Repositories\AttendaceRepository;
+use App\Contracts\Repositories\AttendanceDetailRepository;
+use App\Contracts\Repositories\AttendanceRepository;
 use App\Contracts\Repositories\AttendanceRuleRepository;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
         AttendanceInterface::class => AttendaceRepository::class,
         DivisionInterface::class => DivisionRepository::class,
         PositionInterface::class => PositionRepository::class,
-        AttendanceRuleInterface::class => AttendanceRuleRepository::class,
+        AttendanceInterface::class => AttendanceRepository::class,
+        AttendanceDetailInterface::class => AttendanceDetailRepository::class,
         UserInterface::class => UserRepository::class,
     ];
     /**
