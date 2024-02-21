@@ -14,6 +14,18 @@ class AttendanceRuleRepository extends BaseRepository implements AttendanceRuleI
     }
 
     /**
+     * ruleToday
+     *
+     * @return mixed
+     */
+    public function ruleToday(): mixed
+    {
+        return $this->model->query()
+            ->where('day', now()->format('l'))
+            ->first();
+    }
+
+    /**
      * get
      *
      * @return mixed

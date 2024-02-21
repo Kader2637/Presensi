@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Contracts\Interfaces\AttendanceDetailInterface;
 use App\Contracts\Interfaces\AttendanceInterface;
+use App\Contracts\Interfaces\AttendanceRuleInterface;
+use App\Contracts\Interfaces\EmployeeInterface;
 use App\Http\Requests\StoreattendanceRequest;
 use App\Http\Requests\UpdateattendanceRequest;
 use App\Models\Attendance;
@@ -13,12 +15,34 @@ class AttendanceController extends Controller
 {
     private AttendanceInterface $attendance;
     private AttendanceDetailInterface $attendanceDetail;
+    private EmployeeInterface $employee;
+    private AttendanceRuleInterface $attendanceRule;
     // private AttendanceDetailInterface $attendanceDetail;
-    public function __construct(AttendanceInterface $attendance, AttendanceDetailInterface $attendanceDetailInterface)
+    public function __construct(AttendanceInterface $attendance, AttendanceDetailInterface $attendanceDetailInterface, EmployeeInterface $employeeInterface, AttendanceRuleInterface $attendanceRuleInterface)
     {
+        $this->attendanceRule = $attendanceRuleInterface;
+        $this->employee = $employeeInterface;
         $this->attendanceDetail = $attendanceDetailInterface;
         // $this->attendanceDetail = $attendanceDetailInterface;
         $this->attendance = $attendance;
+    }
+
+    /**
+     * getAttendance
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function getAttendance(Request $request) {
+        $date = now();
+        if ($request->has('date')) {
+            $date = $request->date;
+        }
+        $request->merge(['date' => $date]);
+        $employees = $this->employee->search($request);
+
+        $attendanceRule = $this->attendanceRule->ruleToday();
+        return view('', compact('employees', 'attendanceRule'));
     }
     /**
      * Display a listing of the resource.

@@ -30,6 +30,8 @@ Route::post('position', [PositionController::class, 'store']);
 Route::put('position/{position}', [PositionController::class, 'update']);
 Route::delete('delete-position/{position}', [PositionController::class, 'destroy']);
 
+Route::get('attendance', [AttendanceController::class, 'getAttendance'])->name('attendance.index');
+
 Route::get('employee', [EmployeeController::class, 'index']);
 Route::post('employe' , [EmployeeController::class , 'store'])->name('employe.store');
 Route::get('absensi', function () {
