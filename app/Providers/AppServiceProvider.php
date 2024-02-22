@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         AttendanceInterface::class => AttendanceRepository::class,
         AttendanceDetailInterface::class => AttendanceDetailRepository::class,
         UserInterface::class => UserRepository::class,
+        AttendanceRuleInterface::class => AttendanceRuleRepository::class
     ];
     /**
      * Register any application services.

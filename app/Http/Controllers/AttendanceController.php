@@ -6,10 +6,12 @@ use App\Contracts\Interfaces\AttendanceDetailInterface;
 use App\Contracts\Interfaces\AttendanceInterface;
 use App\Contracts\Interfaces\AttendanceRuleInterface;
 use App\Contracts\Interfaces\EmployeeInterface;
+use App\Exports\AbsensiExport;
 use App\Http\Requests\StoreattendanceRequest;
 use App\Http\Requests\UpdateattendanceRequest;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
 {
@@ -41,8 +43,30 @@ class AttendanceController extends Controller
         $request->merge(['date' => $date]);
         $employees = $this->employee->search($request);
 
+        $attendanceYears = Attendance::query()
+            ->selectRaw('YEAR(created_at) as year')
+            ->groupBy('year')
+            ->orderBy('year', 'desc')
+            ->get();
+            $attendanceMonth = Attendance::query()
+            ->selectRaw('MONTH(created_at) as month')
+            ->groupBy('month')
+            ->orderBy('month', 'desc')
+            ->get();
         $attendanceRule = $this->attendanceRule->ruleToday();
-        return view('', compact('employees', 'attendanceRule'));
+        return view('menu.absensi', compact('employees', 'attendanceRule','attendanceYears','attendanceMonth'));
+    }
+
+    public function export_excel(Request $request)
+    {
+        $request->validate([
+            'month' => 'min:1,max:12',
+        ], [
+            'month.max' => 'Batas bulan hanya 12',
+        ]);
+        $year = $request->input('year');
+        $month = $request->input('month');
+        return Excel::download(new AbsensiExport($year, $month), "absensi-{$year}-{$month}.xlsx");
     }
     /**
      * Display a listing of the resource.
