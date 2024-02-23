@@ -59,7 +59,7 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
             ->whereYear('created_at', $this->year)
             ->whereMonth('created_at', $this->month)
             ->get()
-            ->groupBy('employe_id');
+            ->groupBy('employee_id');
 
         $data = [];
         $no = 1;

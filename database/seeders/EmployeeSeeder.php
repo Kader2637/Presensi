@@ -26,6 +26,6 @@ class EmployeeSeeder extends Seeder
             'wages' => '12',
             'address' => 'afawe',
             ''
-        ])
+        ]);
     }
 }

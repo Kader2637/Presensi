@@ -10,6 +10,7 @@ use App\Exports\AbsensiExport;
 use App\Http\Requests\StoreattendanceRequest;
 use App\Http\Requests\UpdateattendanceRequest;
 use App\Models\Attendance;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -43,6 +44,9 @@ class AttendanceController extends Controller
         $request->merge(['date' => $date]);
         $employees = $this->employee->search($request);
 
+        $employes = Employee::all();
+        // dd($employes);
+
         $attendanceYears = Attendance::query()
             ->selectRaw('YEAR(created_at) as year')
             ->groupBy('year')
@@ -54,7 +58,7 @@ class AttendanceController extends Controller
             ->orderBy('month', 'desc')
             ->get();
         $attendanceRule = $this->attendanceRule->ruleToday();
-        return view('menu.absensi', compact('employees', 'attendanceRule','attendanceYears','attendanceMonth'));
+        return view('menu.absensi', compact('employees', 'attendanceRule','attendanceYears','attendanceMonth', 'employes'));
     }
 
     public function export_excel(Request $request)
