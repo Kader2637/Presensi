@@ -159,7 +159,6 @@
                                         @forelse ($employees as $index=>$employes)
                                             <tr>
                                                 <td>{{ $index + 1 }}</td>
-                                                <td>{{ $employes->id }}</td>
                                                 <td>{{ $employes->name }}</td>
                                                 <td>{{ $employes->email }}</td>
                                                 <td>{{ $employes->nik }}</td>
