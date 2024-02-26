@@ -14,13 +14,14 @@ class EmployeeUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' .  $this->employee->user->id,
-            'password' => 'required|min:6',
+            'email' => 'required|email',
             'nik' => 'required',
             'position' => 'required',
             'photo' => 'nullable|image',
+            'no' => 'required',
             'gender' => 'required',
             'wages' => 'required',
             'rfid' => 'nullable',

@@ -34,6 +34,8 @@ Route::get('attendance', [AttendanceController::class, 'getAttendance'])->name('
 
 Route::get('employee', [EmployeeController::class, 'index']);
 Route::post('employe' , [EmployeeController::class , 'store'])->name('employe.store');
+Route::put('employee/{employee}', [EmployeeController::class, 'update']);
+Route::delete('delete-employee/{employee}', [EmployeeController::class, 'destroy']);
 Route::get('division', [DivisionController::class, 'index']);
 Route::post('division', [DivisionController::class, 'store']);
 Route::put('division/{division}', [DivisionController::class, 'update']);
