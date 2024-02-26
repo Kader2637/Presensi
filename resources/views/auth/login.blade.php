@@ -125,7 +125,7 @@
                                 <script>
                                     document.write(new Date().getFullYear())
                                 </script> Presensi Pegawai <i class="mdi mdi-heart text-danger"></i>
-                                by Yudas Malabi
+                                by HUMMATECH
                             </p>
                         </div>
                     </div>
