@@ -8,7 +8,7 @@
                         <img src="{{ asset('logo.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="" height="17">
+                        <img src="{{ asset('logosidebar.png') }}" alt="" height="17">
                     </span>
                 </a>
 
@@ -17,7 +17,7 @@
                         <img src="{{ asset('logo.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo-light.png" alt="" height="19">
+                        <img src="{{ asset('logosidebar.png') }}" alt="" height="19">
                     </span>
                 </a>
             </div>
