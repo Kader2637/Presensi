@@ -8,16 +8,6 @@
         </div>
     </div>
     {{-- modal  --}}
-
-    @foreach (['name', 'email', 'nik', 'address', 'date_of_birth', 'rfid', 'wages', 'gender'] as $field)
-        @error($field)
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="mdi mdi-block-helper me-2"></i>
-                {{ $message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @enderror
-    @endforeach
     <div class="row">
         <div class="col">
             <div class="card">

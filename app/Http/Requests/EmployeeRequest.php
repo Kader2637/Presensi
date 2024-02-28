@@ -28,4 +28,21 @@ class EmployeeRequest extends FormRequest
             'date_of_birth' => 'required|date',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Nama Tidak boleh kosong',
+            'email.required' => 'Email Tidak boleh kosong',
+            'email.email' => 'Email Tidak Valid',
+            'nik.required' => 'NIK Tidak boleh kosong',
+            'position.required' => 'Posisi Tidak boleh kosong',
+            'no.required' => 'Nomor Tidak boleh kosong',
+            'gender.required' => 'Jenis Kelamin Tidak boleh kosong',
+            'wages.required' => 'Gaji Tidak boleh kosong',
+            'address.required' => 'Alamat Tidak boleh kosong',
+            'date_of_birth.required' => 'Tgl Lahir Tidak boleh kosong',
+            'date_of_birth.date' => 'Tgl Lahir Tidak Valid',
+        ];
+    }
 }

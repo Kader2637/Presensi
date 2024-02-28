@@ -30,8 +30,10 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exportExcelModal">Rekap
-        Excel</button>
+    <div class="mb-3 w-25">
+        <button type="button" class="btn btn-primary w-50" data-bs-toggle="modal" data-bs-target="#exportExcelModal">Rekap
+            Excel</button>
+    </div>
 
     <!-- Export Excel Modal -->
     <div class="modal fade" id="exportExcelModal" tabindex="-1" aria-labelledby="exportExcelModalLabel" aria-hidden="true">
