@@ -21,7 +21,7 @@
                 <div class="avatar-sm mx-auto mb-4">
                     @if (file_exists(public_path('storage/' . $employee->photo)))
                         <img class="avatar-title rounded-circle bg-primary-subtle text-primary"
-                            style="object-fit: cover" src="{{ asset( $employee->photo) }}">
+                            style="object-fit: cover" src="{{ asset('default.jpg') }}">
                     @else
                         <img class="avatar-title rounded-circle bg-primary-subtle text-primary"
                             style="object-fit: cover" src="{{ asset('default.jpg') }}">
