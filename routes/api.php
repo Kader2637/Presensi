@@ -27,4 +27,4 @@ Route::get('employees', [EmployeeController::class, 'index']);
 Route::post('sync' , [AttendanceController::class , 'store']);
 Route::get('attendance-rules', [AttendanceRuleController::class, 'index']);
 Route::post('attendance-rules', [AttendanceRuleController::class, 'store']);
-Route::apiResource('face', FaceController::class)->only('index', 'store');
+Route::apiResource('face-api', FaceController::class)->only('index', 'store');
