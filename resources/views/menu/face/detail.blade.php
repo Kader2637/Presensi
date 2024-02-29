@@ -33,8 +33,12 @@
 
 <div class="row">
     @forelse ($faces as $face)
-    <div class="col mt-4">
-        <img src="{{ asset('storage/' . $face->photo ) }}" alt="{{ $face->photo }}" style="width:400px">
+    <div class="col-12 col-xl-3 col-lg-12 mt-4 shadow border">
+        <div class="card">
+            <div class="card-body">
+                <img src="{{ asset('storage/' . $face->photo ) }}" alt="{{ $face->photo }}" class="w-100">
+            </div>
+        </div>
     </div>
     @empty
     <div class="d-flex justify-content-center">
