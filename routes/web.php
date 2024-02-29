@@ -45,7 +45,7 @@ Route::delete('delete-division/{division}', [DivisionController::class, 'destroy
 Auth::routes();
 Route::get('absensi' , [AttendanceController::class , 'getAttendance']);
 Route::get('data-absensi/export/excel', [AttendanceController::class, 'export_excel'])->name('list.attendance.admin.export.excel');
-
-Route::resource('face', FaceController::class)->except('show', 'edit', 'update');
-
+Route::get('face' , [FaceController::class , 'index']);
+Route::get('face/detail/{id}' , [FaceController::class , 'show']);
+Route::post('face/create', [FaceController::class, 'store']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

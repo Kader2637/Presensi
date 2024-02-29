@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\Interfaces\EmployeeInterface;
 use App\Contracts\Interfaces\FaceInterface;
 use App\Http\Requests\FaceRequest;
+use App\Models\Employee;
 use App\Models\Face;
 use App\Services\FaceService;
 use Illuminate\Contracts\View\View;
@@ -28,7 +29,7 @@ class FaceController extends Controller
     public function index()
     {
         $employees = $this->employee->get();
-        return view('', compact('employees'));
+        return view('menu.face.index', compact('employees'));
     }
 
     /**
@@ -60,9 +61,11 @@ class FaceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Face $face)
+    public function show(Face $face , $id)
     {
-        //
+        $employees = Employee::findOrfail($id);
+        $faces = Face::where('employee_id' , $id)->get();
+        return view('menu.face.detail' , compact('employees' ,'id' ,'faces'));
     }
 
     /**

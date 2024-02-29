@@ -33,15 +33,14 @@
                     </a>
                 </li>
             </ul>
-            {{-- <ul class="metismenu list-unstyled" id="side-menu">
+            <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="/position" class="waves-effect">
+                    <a href="/face" class="waves-effect">
                         <i class="bx bx-user"></i>
-                        <span key="t-chat">Jabatan</span>
+                        <span key="t-chat">Wajah</span>
                     </a>
                 </li>
-            </ul> --}}
-
+            </ul>
         </div>
         <!-- Sidebar -->
     </div>
