@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Example</h4>
+                <h4 class="card-title mb-4">Tambah Image Wajah</h4>
                 <form class="repeater" action="/face/create" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div data-repeater-list="group-a">
