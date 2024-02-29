@@ -6,16 +6,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <div class="dropdown dropstart custom-dropdown">
-                        <p id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <span class="fa fa-ellipsis-v"></span>
-                        </p>
-                        <style>
-                            .custome-drop-down {
-                                left: -150px !important;
-                            }
-                        </style>
+                    <div class="dropdown dropstart custom-dropdown mt-4">
                     </div>
                 </div>
                 <div class="avatar-sm mx-auto mb-4">
