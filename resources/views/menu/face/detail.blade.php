@@ -1,10 +1,13 @@
 @extends('layouts.app')
 @section('content')
+<div class="d-flex justify-content-between mb-3">
+    <h4 class="card-title mb-4">Tambah Image Wajah</h4>
+    <a href="/face" class="btn btn-primary">Kembali</a>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Tambah Image Wajah</h4>
                 <form class="repeater" action="/face/create" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div data-repeater-list="group-a">
