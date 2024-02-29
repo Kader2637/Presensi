@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\Api\FaceController;
 use App\Http\Controllers\AttendanceController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AttendanceRuleController;
@@ -26,3 +27,4 @@ Route::get('employees', [EmployeeController::class, 'index']);
 Route::post('sync' , [AttendanceController::class , 'store']);
 Route::get('attendance-rules', [AttendanceRuleController::class, 'index']);
 Route::post('attendance-rules', [AttendanceRuleController::class, 'store']);
+Route::apiResource('face-api', FaceController::class)->only('index', 'store');
