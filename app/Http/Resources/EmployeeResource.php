@@ -27,6 +27,7 @@ class EmployeeResource extends JsonResource
             'rfid' => $this->rfid,
             'address' => $this->address,
             'date_of_birth' => $this->date_of_birth,
+            'faces' => FaceResource::collection($this->faces),
         ];
     }
 }
