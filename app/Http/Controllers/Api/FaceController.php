@@ -6,10 +6,9 @@ use App\Contracts\Interfaces\EmployeeInterface;
 use App\Contracts\Interfaces\FaceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FaceRequest;
-use App\Http\Resources\EmployeeResource;
+use App\Http\Resources\EmployeeFaceResource;
 use App\Services\FaceService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class FaceController extends Controller
 {
@@ -32,7 +31,7 @@ class FaceController extends Controller
     public function index(): JsonResponse
     {
         $employees = $this->employee->get();
-        return response()->json(['result' => EmployeeResource::collection($employees)]);
+        return response()->json(['result' => EmployeeFaceResource::collection($employees)]);
     }
 
     public function store(FaceRequest $request): JsonResponse
