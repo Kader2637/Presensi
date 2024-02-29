@@ -8,6 +8,7 @@ use App\Models\AttendanceRule;
 use App\Models\division;
 use App\Models\Employe;
 use App\Models\Employee;
+use App\Models\Face;
 use App\Models\User;
 use App\Models\Position;
 use App\Observers\AttendanceDetailObserver;
@@ -16,6 +17,7 @@ use App\Observers\AttendanceRuleObserver;
 use App\Observers\DivisionObserver;
 use App\Observers\EmployeeObserver;
 use App\Observers\EmployeObserver;
+use App\Observers\FaceObserver;
 use App\Observers\PositionObserver;
 use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
@@ -48,6 +50,7 @@ class EventServiceProvider extends ServiceProvider
         Employee::observe(EmployeeObserver::class);
         User::observe(UserObserver::class);
         Position::observe(PositionObserver::class);
+        Face::observe(FaceObserver::class);
     }
 
     /**

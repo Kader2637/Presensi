@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\FaceController;
 use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,5 +45,6 @@ Auth::routes();
 Route::get('absensi' , [AttendanceController::class , 'getAttendance']);
 Route::get('data-absensi/export/excel', [AttendanceController::class, 'export_excel'])->name('list.attendance.admin.export.excel');
 
+Route::resource('face', FaceController::class)->except('show', 'edit', 'update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

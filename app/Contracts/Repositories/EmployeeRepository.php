@@ -45,6 +45,7 @@ class EmployeeRepository extends BaseRepository implements EmployeeInterface
     public function get(): mixed
     {
         return $this->model->query()
+            ->with('faces')
             ->get();
     }
 
