@@ -29,13 +29,22 @@
         </div>
     </div>
 </div>
+<h4 class="card-title mb-4">Data Image Wajah</h4>
+
 <div class="row">
     @forelse ($faces as $face)
     <div class="col mt-4">
         <img src="{{ asset('storage/' . $face->photo ) }}" alt="{{ $face->photo }}" style="width:400px">
     </div>
     @empty
-
+    <div class="d-flex justify-content-center">
+        <div class="">
+            <img src="{{ asset('nodata.png') }}" width="300px" height="300px" alt="" srcset="">
+            <p class="fs-5 text-center mt-4 text-dark" style="font-weight: 500">
+                Data Tidak Tersedia
+            </p>
+        </div>
+    </div>
     @endforelse
 </div>
 @endsection
