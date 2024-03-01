@@ -12,7 +12,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('logo.png') }}">
 
     <!-- Bootstrap Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -35,8 +35,8 @@
                             <div class="row">
                                 <div class="col-7">
                                     <div class="text-primary p-4">
-                                        <h5 class="text-primary">Welcome Back !</h5>
-                                        <p>Sign in to continue to Skote.</p>
+                                        <h5 class="text-primary">Selamat datang !</h5>
+                                        <p>Login untuk melanjutkan </p>
                                     </div>
                                 </div>
                                 <div class="col-5 align-self-end">
@@ -55,10 +55,10 @@
                                     </div>
                                 </a>
 
-                                <a href="index.html" class="auth-logo-dark">
+                                <a href="#" class="auth-logo-dark">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light">
-                                            <img src="assets/images/logo.svg" alt="" class="rounded-circle"
+                                            <img src="{{ asset('logo.png') }}" alt="" class="rounded-circle"
                                                 height="34">
                                         </span>
                                     </div>
@@ -95,41 +95,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="remember-check">
-                                        <label class="form-check-label" for="remember-check">
-                                            Remember me
-                                        </label>
-                                    </div>
-
                                     <div class="mt-3 d-grid">
                                         <button class="btn btn-primary waves-effect waves-light" type="submit">Log
                                             In</button>
-                                    </div>
-
-                                    <div class="mt-4 text-center">
-                                        <a href="auth-recoverpw.html" class="text-muted"><i
-                                                class="mdi mdi-lock me-1"></i> Forgot your password?</a>
                                     </div>
                                 </form>
                             </div>
 
                         </div>
                     </div>
-                    <div class="mt-5 text-center">
-
-                        <div>
-                            <p>Belum Mempunyai Akun ? <a href="/register" class="fw-medium text-primary">
-                                Register</a> </p>
-                            <p>©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script> Presensi Pegawai <i class="mdi mdi-heart text-danger"></i>
-                                by HUMMATECH
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -146,4 +120,5 @@
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>
