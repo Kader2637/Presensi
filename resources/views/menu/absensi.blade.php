@@ -1,9 +1,13 @@
 @extends('layouts.app')
 @section('content')
     <div class="row">
-        <div class="col-12">
+        <div class="d-flex justify-content-between mb-3">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                 <h4 class="mb-sm-0 font-size-18">Absensi Pegawai</h4>
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportExcelModal">Rekap
+                    Excel</button>
             </div>
         </div>
     </div>
@@ -31,8 +35,7 @@
         </div>
     </div>
     <div class="mb-3 w-25">
-        <button type="button" class="btn btn-primary w-50" data-bs-toggle="modal" data-bs-target="#exportExcelModal">Rekap
-            Excel</button>
+
     </div>
 
     <!-- Export Excel Modal -->
