@@ -5,10 +5,7 @@
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                 <h4 class="mb-sm-0 font-size-18">Absensi Pegawai</h4>
             </div>
-            <div class="">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportExcelModal">Rekap
-                    Excel</button>
-            </div>
+
         </div>
     </div>
     <div class="card">
@@ -83,7 +80,13 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Absensi</h4>
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title mb-4">Absensi</h4>
+                        <div class="">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportExcelModal">Rekap
+                                Excel</button>
+                        </div>
+                    </div>
                     <div data-simplebar style="max-height: 376px;">
                         <div class="vstack gap-4">
                             <div class="table-responsive">
