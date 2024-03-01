@@ -40,13 +40,13 @@
         </div>
         <div class="col-xl-7">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col">
                     <div class="card mini-stats-wid">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-muted fw-medium">Total Siswa Yang Aktif</p>
-                                    <h4 class="mb-0">22</h4>
+                                    <p class="text-muted fw-medium">Total Pegawai</p>
+                                    <h4 class="mb-0">{{ $employees }}</h4>
                                 </div>
 
                                 <div class="flex-shrink-0 align-self-center">
@@ -60,49 +60,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mini-stats-wid">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-muted fw-medium">Menunggu Konfirmasi</p>
-                                    <h4 class="mb-0">14</h4>
-                                </div>
-
-                                <div class="flex-shrink-0 align-self-center ">
-                                    <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                        <span class="avatar-title rounded-circle bg-primary">
-                                            <i class="bx bx-confused font-size-24"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mini-stats-wid">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-muted fw-medium">Siswa Yang Ditolak</p>
-                                    <h4 class="mb-0">2</h4>
-                                </div>
-
-                                <div class="flex-shrink-0 align-self-center">
-                                    <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                        <span class="avatar-title rounded-circle bg-primary">
-                                            <i class="bx bx-tired font-size-24"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- end row -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
@@ -177,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

@@ -4,6 +4,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\FaceController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('dashboard', function () {
-    return view('dashboard');
-});
+Route::get('dashboard', [HomeController::class ,'dashboard']);
 
 Route::get('position', [PositionController::class, 'index']);
 
