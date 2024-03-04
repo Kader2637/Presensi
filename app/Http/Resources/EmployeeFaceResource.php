@@ -16,7 +16,7 @@ class EmployeeFaceResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->user->name,
+            'name' => $this->name,
             'rfid' => $this->rfid,
             'faces' => FaceResource::collection($this->faces),
         ];
