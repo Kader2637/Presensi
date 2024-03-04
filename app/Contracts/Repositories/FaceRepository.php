@@ -32,7 +32,10 @@ class FaceRepository extends BaseRepository implements FaceInterface
      */
     public function show(mixed $id): mixed
     {
-        return $this->model->query()->where('employee_id',$id)->get();
+        return $this->model->query()
+        ->where('employee_id', $id)
+        ->orderBy('created_at', 'asc')
+        ->get();
     }
 
     /**
