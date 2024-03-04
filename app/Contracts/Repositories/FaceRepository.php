@@ -34,7 +34,6 @@ class FaceRepository extends BaseRepository implements FaceInterface
     {
         return $this->model->query()
         ->where('employee_id', $id)
-        ->orderBy('created_at', 'asc')
         ->get();
     }
 
