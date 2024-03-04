@@ -16,7 +16,8 @@ class FaceResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'photo' => asset('storage/' . $this->photo),
+            'url' => asset('storage/' . $this->photo),
+            'photo' => $this->photo
         ];
     }
 }
