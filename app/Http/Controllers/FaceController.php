@@ -63,8 +63,8 @@ class FaceController extends Controller
      */
     public function show(Face $face , $id)
     {
-        $employees = Employee::findOrfail($id);
-        $faces = Face::where('employee_id' , $id)->get();
+        $employees = $this->employee->show($id);
+        $faces = $this->face->show($id);
         return view('menu.face.detail' , compact('employees' ,'id' ,'faces'));
     }
 

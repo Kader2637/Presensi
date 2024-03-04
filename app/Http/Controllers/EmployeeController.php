@@ -64,6 +64,7 @@ class EmployeeController extends Controller
     {
         $data = $this->service->update($request, $employee);
         $this->employee->update($employee->id, $data);
+        $this->user->update($employee->user_id , $data);
         return redirect()->back()->with('success', 'Berhasil merubah employee');
     }
 
