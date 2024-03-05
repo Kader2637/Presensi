@@ -45,7 +45,8 @@ class FaceRepository extends BaseRepository implements FaceInterface
      */
     public function delete(mixed $id): mixed
     {
-        return $this->show($id)
+        return $this->model->query()
+            ->where('employee_id', $id)
             ->delete();
     }
 }

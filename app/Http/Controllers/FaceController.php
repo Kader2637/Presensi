@@ -79,18 +79,31 @@ class FaceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Face $face)
+    public function update(FaceRequest $request, Employee $employee)
     {
-        //
+        $data = $this->service->update($request, $employee);
+        $this->face->delete($employee->id);
+        foreach ($data['photo'] as $photo) {
+            $this->face->store([
+                'employee_id' => $data['employee_id'],
+                'photo' => $photo,
+            ]);
+        }
+        return redirect()->back()->with('success', 'Berhasil mengupdate');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy
+     *
+     * @param  mixed $employee
+     * @return void
      */
-    public function destroy(Face $face): RedirectResponse
+    public function destroy(Employee $employee)
     {
-        $this->service->remove($face->photo);
-        $this->face->delete($face->id);
+        foreach ($employee->faces as $face ) {
+            $this->service->remove($face->photo);
+        }
+        $this->face->delete($employee->id);
         return redirect()->back()->with('success', 'Berhasil menghapus');
     }
 }
