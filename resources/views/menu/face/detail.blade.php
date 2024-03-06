@@ -32,7 +32,10 @@
     </div>
     <div class="d-flex justify-content-between mb-4">
         <h4 class="card-title mb-4">Data Image Wajah</h4>
-        <button class="btn btn-primary btn-edit" data-id="{{ $id }}" id="{{ $id }}">Edit</button>
+        <div class="d-flex gap-2">
+            <button class="btn btn-danger btn-delete" data-id="{{ $id }}" id="{{ $id }}">Hapus</button>
+            <button class="btn btn-primary btn-edit" data-id="{{ $id }}" id="{{ $id }}">Edit</button>
+        </div>
     </div>
 
     <div class="row">
@@ -83,10 +86,16 @@
         </div>
     </div>
 </div>
+@include('components.delete-modal-component')
 @endsection
 @section('script')
     <script src="{{ asset('assets/libs/jquery.repeater/jquery.repeater.min.js') }}"></script>
     <script>
+         $('.btn-delete').on('click', function() {
+            var id = $(this).data('id');
+            $('#form-delete').attr('action', '/face/delete/' + id);
+            $('#modal-delete').modal('show');
+        });
         $('.btn-edit').click(function() {
             var id = $(this).data('id'); // Mengambil nilai id dari tombol yang diklik
             $('#form-update').attr('action', '/face/update/' + id); // Mengubah nilai atribut action form

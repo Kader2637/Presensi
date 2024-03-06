@@ -48,5 +48,5 @@ Route::get('face' , [FaceController::class , 'index']);
 Route::get('face/detail/{id}' , [FaceController::class , 'show']);
 Route::post('face/create', [FaceController::class, 'store']);
 Route::put('face/update/{employee}', [FaceController::class, 'update'])->name('face.update');
-Route::delete('face/{employee}', [FaceController::class, 'destroy'])->name('face.destroy');
+Route::delete('face/delete/{employee}', [FaceController::class, 'destroy'])->name('face.destroy');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

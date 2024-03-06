@@ -98,11 +98,20 @@
                     <h5 class="modal-title" id="myModalLabel">Tambah pegawai</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('employe.store') }}" method="post">
+                <form action="{{ route('employe.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="modal-body">
                         <div class="row">
+                            <div class="col-12 col-xl-12">
+                                <label for="">Image</label>
+                                <input type="file" name="photo" class="form-control">
+                                @error('photo')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
+                            </div>
                             <div class="col-12 col-xl-4">
                                 <label for="">Nama</label>
                                 <input type="text" name="name" class="form-control">
@@ -212,11 +221,20 @@
                     <h5 class="modal-title" id="myModalLabel">Ubah pegawai</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" id="form-update">
+                <form method="post" id="form-update" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
                         <div class="row">
+                            <div class="col-12 col-xl-12">
+                                <label for="">Image</label>
+                                <input type="file" name="photo" class="form-control">
+                                @error('photo')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
+                            </div>
                             <div class="col-12 col-xl-4">
                                 <label for="">Nama</label>
                                 <input type="text" name="name" id="name" class="form-control">

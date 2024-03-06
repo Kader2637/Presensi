@@ -29,6 +29,7 @@ class FaceController extends Controller
     public function index()
     {
         $employees = $this->employee->get();
+
         return view('menu.face.index', compact('employees'));
     }
 
@@ -65,6 +66,7 @@ class FaceController extends Controller
     {
         $employees = $this->employee->show($id);
         $faces = $this->face->show($id);
+
         return view('menu.face.detail' , compact('employees' ,'id' ,'faces'));
     }
 

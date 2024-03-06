@@ -13,10 +13,12 @@ trait UploadTrait
      * @return void
      */
 
-    public function remove(string $file): void
-    {
-        if ($this->exist($file)) Storage::disk('public')->delete($file);
-    }
+     public function remove(?string $file): void
+     {
+         if ($file !== null && $this->exist($file)) {
+             Storage::disk('public')->delete($file);
+         }
+     }
 
     /**
      * check specified file in storage
