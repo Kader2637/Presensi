@@ -38,7 +38,7 @@
         </div>
     </div>
     <h1>
-        {{ $count }}
+        Total {{ $count }} Image
     </h1>
     <div class="row">
         @forelse ($faces as $face)
