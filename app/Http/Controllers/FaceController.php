@@ -66,8 +66,8 @@ class FaceController extends Controller
     {
         $employees = $this->employee->show($id);
         $faces = $this->face->show($id);
-
-        return view('menu.face.detail' , compact('employees' ,'id' ,'faces'));
+        $count = Face::count();
+        return view('menu.face.detail' , compact('employees' ,'id' ,'faces' ,'count'));
     }
 
     /**

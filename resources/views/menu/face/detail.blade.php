@@ -37,7 +37,9 @@
             <button class="btn btn-primary btn-edit" data-id="{{ $id }}" id="{{ $id }}">Edit</button>
         </div>
     </div>
-
+    <h1>
+        {{ $count }}
+    </h1>
     <div class="row">
         @forelse ($faces as $face)
             <div class="col-12 col-xl-3 col-lg-12 ">
