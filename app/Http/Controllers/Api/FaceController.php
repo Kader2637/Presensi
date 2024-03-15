@@ -31,7 +31,16 @@ class FaceController extends Controller
     public function index(): JsonResponse
     {
         $employees = $this->employee->get();
-        return response()->json(['result' => EmployeeFaceResource::collection($employees)]);
+
+        $serializedData = serialize($employees);
+        $md5 = md5($serializedData);
+
+        $response = [
+            'md5' => $md5,
+            'result' => EmployeeFaceResource::collection($employees)
+        ];
+
+        return response()->json($response);
     }
 
     public function store(FaceRequest $request): JsonResponse
