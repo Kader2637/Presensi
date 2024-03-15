@@ -29,14 +29,17 @@ class EmployeeController extends Controller
     {
         $employees = $this->employee->get();
 
+        $serializedData = serialize($employees);
+        $md5 = md5($serializedData);
+
         $response = [
             'total' => count($employees),
+            'md5' => $md5,
             'result' => EmployeeResource::collection($employees)
         ];
 
         return response()->json($response, 200);
     }
-
     public function store(EmployeeRequest $request): JsonResponse
     {
         $data = $this->service->store($request);
