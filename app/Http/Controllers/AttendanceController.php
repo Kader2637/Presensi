@@ -110,7 +110,7 @@ class AttendanceController extends Controller
             }
             // $this->attendanceDetail->store($dataDetail);
         }
-        return response()->json(['message' => 'Sinkronisasi Presensi Berhasil'], 200);
+        return response()->json(['message' => 'Sinkronisasi Presensi Berhasil', 'code' => 200]);
     }
 
     /**
