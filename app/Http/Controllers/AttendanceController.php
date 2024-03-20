@@ -36,7 +36,8 @@ class AttendanceController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function getAttendance(Request $request) {
+    public function getAttendance(Request $request)
+    {
         $date = now();
         if ($request->has('date')) {
             $date = $request->date;
@@ -52,13 +53,13 @@ class AttendanceController extends Controller
             ->groupBy('year')
             ->orderBy('year', 'desc')
             ->get();
-            $attendanceMonth = Attendance::query()
+        $attendanceMonth = Attendance::query()
             ->selectRaw('MONTH(created_at) as month')
             ->groupBy('month')
             ->orderBy('month', 'desc')
             ->get();
         $attendanceRule = $this->attendanceRule->ruleToday();
-        return view('menu.absensi', compact('employees', 'attendanceRule','attendanceYears','attendanceMonth', 'employes'));
+        return view('menu.absensi', compact('employees', 'attendanceRule', 'attendanceYears', 'attendanceMonth', 'employes'));
     }
 
     public function export_excel(Request $request)
@@ -109,7 +110,7 @@ class AttendanceController extends Controller
             }
             // $this->attendanceDetail->store($dataDetail);
         }
-        return response()->json(['message' => 'Berhasil menambah absensi'], 200);
+        return response()->json(['message' => 'Sinkronisasi Presensi Berhasil'], 200);
     }
 
     /**
