@@ -97,4 +97,8 @@ class EmployeeRepository extends BaseRepository implements EmployeeInterface
         return $this->show($id)
             ->delete();
     }
+    public function with(): mixed
+    {
+        return $this->model->query()->with('faces')->get();
+    }
 }

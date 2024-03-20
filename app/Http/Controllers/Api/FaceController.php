@@ -7,8 +7,11 @@ use App\Contracts\Interfaces\FaceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FaceRequest;
 use App\Http\Resources\EmployeeFaceResource;
+use App\Http\Resources\FaceResource;
+use App\Models\Face;
 use App\Services\FaceService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Hash;
 
 class FaceController extends Controller
 {
@@ -16,6 +19,7 @@ class FaceController extends Controller
     private FaceService $service;
     private EmployeeInterface $employee;
     private FaceInterface $face;
+
     public function __construct(FaceInterface $faceInterface, EmployeeInterface $employeeInterface, FaceService $faceService)
     {
         $this->face = $faceInterface;
@@ -28,22 +32,23 @@ class FaceController extends Controller
      *
      * @return JsonResponse
      */
+
     public function index(): JsonResponse
     {
         $employees = $this->employee->get();
 
-        $serializedData = serialize($employees);
-        $md5 = md5($serializedData);
+        $faces = $this->face->get();
+
+        $md5 = md5($faces);
 
         $response = [
             'md5' => $md5,
-            'result' => EmployeeFaceResource::collection($employees)
+            'result' => EmployeeFaceResource::collection($employees),
         ];
 
         return response()->json($response);
     }
-
-    public function store(FaceRequest $request): JsonResponse
+    function store(FaceRequest $request): JsonResponse
     {
         $data = $this->service->store($request);
         foreach ($data['photo'] as $photo) {

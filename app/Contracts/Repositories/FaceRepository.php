@@ -12,6 +12,11 @@ class FaceRepository extends BaseRepository implements FaceInterface
         $this->model = $face;
     }
 
+    public function get(): mixed
+    {
+        return $this->model->query()->get();
+    }
+
     /**
      * store
      *

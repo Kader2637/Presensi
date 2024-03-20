@@ -7,8 +7,9 @@ use App\Contracts\Interfaces\Eloquent\SearchInterface;
 use App\Contracts\Interfaces\Eloquent\ShowInterface;
 use App\Contracts\Interfaces\Eloquent\StoreInterface;
 use App\Contracts\Interfaces\Eloquent\UpdateInterface;
+use App\Contracts\Interfaces\Eloquent\WithInterface;
 
-interface EmployeeInterface extends GetInterface, StoreInterface,DeleteInterface, UpdateInterface, ShowInterface, SearchInterface
+interface EmployeeInterface extends GetInterface, StoreInterface,DeleteInterface, UpdateInterface, ShowInterface, SearchInterface , WithInterface
 {
 
 }
