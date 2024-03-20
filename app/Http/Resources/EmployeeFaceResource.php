@@ -15,8 +15,6 @@ class EmployeeFaceResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
             'rfid' => $this->rfid,
             'faces' => FaceResource::collection($this->faces),
         ];
