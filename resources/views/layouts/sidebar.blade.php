@@ -28,7 +28,7 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
                     <a href="/absensi" class="waves-effect">
-                        <i class="bx bx-user"></i>
+                        <i class='bx bxs-spreadsheet'></i>
                         <span key="t-chat">Absensi</span>
                     </a>
                 </li>
@@ -36,7 +36,7 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
                     <a href="/face" class="waves-effect">
-                        <i class="bx bx-user"></i>
+                        <i class='bx bx-face' ></i>
                         <span key="t-chat">Wajah</span>
                     </a>
                 </li>
