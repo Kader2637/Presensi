@@ -11,5 +11,8 @@ use App\Contracts\Interfaces\Eloquent\WithInterface;
 
 interface EmployeeInterface extends GetInterface, StoreInterface,DeleteInterface, UpdateInterface, ShowInterface, SearchInterface , WithInterface
 {
-
+    /**
+     * Get attendance today
+     */
+    public function getAttendanceToday(): mixed;
 }

@@ -45,7 +45,7 @@ class AttendanceController extends Controller
         $request->merge(['date' => $date]);
         $employees = $this->employee->search($request);
 
-        $employes = Employee::all();
+        $employes = $this->employee->getAttendanceToday();
         // dd($employes);
 
         $attendanceYears = Attendance::query()

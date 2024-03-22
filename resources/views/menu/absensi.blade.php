@@ -95,6 +95,7 @@
                                         <tr>
                                             <th style="background-color: #1B3061" class="text-white">No</th>
                                             <th style="background-color: #1B3061" class="text-white">Pegawai</th>
+                                            <th style="background-color: #1B3061" class="text-white">Tanggal</th>
                                             <th style="background-color: #1B3061" class="text-white">Keterangan</th>
                                             <th style="background-color: #1B3061" class="text-white">Masuk</th>
                                             <th style="background-color: #1B3061" class="text-white">Istirahat</th>
@@ -107,6 +108,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $employe->name }}</td>
+                                            <td>{{ \carbon\carbon::parse(Now())->locale('id')->isoFormat('DD MMMM Y') }}</td>
                                             <td>
                                                 @if (isset($employe->attendances[0]))
                                                     @if ($employe->attendances[0]->status == 'masuk')
