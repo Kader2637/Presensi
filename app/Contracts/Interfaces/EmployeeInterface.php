@@ -14,5 +14,4 @@ interface EmployeeInterface extends GetInterface, StoreInterface,DeleteInterface
     /**
      * Get attendance today
      */
-    public function getAttendanceToday(): mixed;
 }

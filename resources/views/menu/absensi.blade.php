@@ -80,15 +80,44 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <h4 class="card-title mb-4">Absensi</h4>
-                        <div class="">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exportExcelModal">Rekap
+                    <h4 class="card-title">Absensi Pegawai</h4>
+                    <div class="row justify-content-end">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <form action="">
+                                <div class="input-group">
+                                    <input name="name" type="text" value="{{ $request->name }}" class="form-control" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button class="btn text-white" style="background-color: #1B3061; border-radius: 0 5px 5px 0;" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <form>
+                                <div class="">
+                                    <div class="">
+                                        <div class="input-group">
+                                            <input name="date" type="date" value="{{ $request->date }}" class="form-control" placeholder="Search">
+                                            <div class="input-group-append">
+                                                <button class="btn text-white" style="background-color: #1B3061; border-radius: 0 5px 5px 0;" type="submit">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
+                                data-bs-target="#exportExcelModal">Rekap
                                 Excel</button>
                         </div>
                     </div>
                     <div data-simplebar style="max-height: 376px;">
-                        <div class="vstack gap-4">
+                        <div class="vstack gap-4 mt-2">
                             <div class="table-responsive">
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
@@ -105,126 +134,127 @@
                                     </thead>
                                     <tbody>
                                         @forelse ($employes as $employe)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $employe->name }}</td>
-                                            <td>{{ \carbon\carbon::parse(Now())->locale('id')->isoFormat('DD MMMM Y') }}</td>
-                                            <td>
-                                                @if (isset($employe->attendances[0]))
-                                                    @if ($employe->attendances[0]->status == 'masuk')
-                                                        <div class="btn btn-soft-success waves-effect waves-light">
-                                                            {{ $employe->attendances[0]->status }}
-                                                        </div>
-                                                    @endif
-                                                    @if ($employe->attendances[0]->status == 'izin')
-                                                        <div class="btn btn-soft-warning waves-effect waves-light">
-                                                            {{ $employe->attendances[0]->status }}
-                                                        </div>
-                                                    @endif
-                                                    @if ($employe->attendances[0]->status == 'sakit')
-                                                        <div class="btn btn-soft-warning waves-effect waves-light">
-                                                            {{ $employe->attendances[0]->status }}
-                                                        </div>
-                                                    @endif
-                                                    @if ($employe->attendances[0]->status == 'alpha')
-                                                        <div
-                                                            class="btn btn-soft-danger non-active waves-effect waves-light">
-                                                            {{ $employe->attendances[0]->status }}
-                                                        </div>
-                                                    @endif
-                                                @else
-                                                    <div class="btn btn-soft-danger waves-effect waves-light">
-                                                        @php
-                                                            $waktuSaatIni = \Carbon\Carbon::now();
-                                                            $waktuJamDelapan = \Carbon\Carbon::today()->setHour(8);
-                                                        @endphp
-
-                                                        @if ($waktuSaatIni->greaterThan($waktuJamDelapan))
-                                                            Alpha
-                                                        @else
-                                                            Belum Hadir
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $employe->name }}</td>
+                                                <td>{{ \Carbon\Carbon::parse(request()->date)->locale('id_ID')->isoFormat('DD MMMM Y') }}
+                                                </td>
+                                                <td>
+                                                    @if (isset($employe->attendances[0]))
+                                                        @if ($employe->attendances[0]->status == 'masuk')
+                                                            <div class="btn btn-soft-success waves-effect waves-light">
+                                                                {{ $employe->attendances[0]->status }}
+                                                            </div>
                                                         @endif
+                                                        @if ($employe->attendances[0]->status == 'izin')
+                                                            <div class="btn btn-soft-warning waves-effect waves-light">
+                                                                {{ $employe->attendances[0]->status }}
+                                                            </div>
+                                                        @endif
+                                                        @if ($employe->attendances[0]->status == 'sakit')
+                                                            <div class="btn btn-soft-warning waves-effect waves-light">
+                                                                {{ $employe->attendances[0]->status }}
+                                                            </div>
+                                                        @endif
+                                                        @if ($employe->attendances[0]->status == 'alpha')
+                                                            <div
+                                                                class="btn btn-soft-danger non-active waves-effect waves-light">
+                                                                {{ $employe->attendances[0]->status }}
+                                                            </div>
+                                                        @endif
+                                                    @else
+                                                        <div class="btn btn-soft-danger waves-effect waves-light">
+                                                            @php
+                                                                $waktuSaatIni = \Carbon\Carbon::now();
+                                                                $waktuJamDelapan = \Carbon\Carbon::today()->setHour(8);
+                                                            @endphp
 
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if (isset($employe->attendances[0]))
-                                                    @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
-                                                        @if ($detailAttendance->status == 'present')
-                                                            @if (date('H:i:s', strtotime($detailAttendance->created_at)) <=
-                                                                    \Carbon\Carbon::createFromFormat('H:i:s', $attendanceRule?->checkin_ends ?? '08:00:00')->addMinutes(1)->format('H:i:s'))
-                                                                <div
-                                                                    class="btn btn-soft-success waves-effect waves-light">
-                                                                    {{ date('H:i', strtotime($detailAttendance->created_at)) }}
-                                                                </div>
+                                                            @if ($waktuSaatIni->greaterThan($waktuJamDelapan))
+                                                                Alpha
                                                             @else
-                                                                <div
-                                                                    class="btn btn-soft-warning waves-effect waves-light">
+                                                                Belum Hadir
+                                                            @endif
+
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if (isset($employe->attendances[0]))
+                                                        @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
+                                                            @if ($detailAttendance->status == 'present')
+                                                                @if (date('H:i:s', strtotime($detailAttendance->created_at)) <=
+                                                                        \Carbon\Carbon::createFromFormat('H:i:s', $attendanceRule?->checkin_ends ?? '08:00:00')->addMinutes(1)->format('H:i:s'))
+                                                                    <div
+                                                                        class="btn btn-soft-success waves-effect waves-light">
+                                                                        {{ date('H:i', strtotime($detailAttendance->created_at)) }}
+                                                                    </div>
+                                                                @else
+                                                                    <div
+                                                                        class="btn btn-soft-warning waves-effect waves-light">
+                                                                        {{ date('H:i', strtotime($detailAttendance->created_at)) }}
+                                                                    </div>
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if (isset($employe->attendances[0]))
+                                                        @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
+                                                            @if ($detailAttendance->status == 'break')
+                                                                <div class="btn btn-soft-success waves-effect waves-light">
                                                                     {{ date('H:i', strtotime($detailAttendance->created_at)) }}
                                                                 </div>
                                                             @endif
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if (isset($employe->attendances[0]))
-                                                    @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
-                                                        @if ($detailAttendance->status == 'break')
-                                                            <div class="btn btn-soft-success waves-effect waves-light">
-                                                                {{ date('H:i', strtotime($detailAttendance->created_at)) }}
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if (isset($employe->attendances[0]))
-                                                    @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
-                                                        @if ($detailAttendance->status == 'return_break')
-                                                            @if (date('H:i:s', strtotime($detailAttendance->created_at)) <=
-                                                                    \Carbon\Carbon::createFromFormat('H:i:s', $attendanceRule?->return_ends ?? '13:00:00')->addMinutes(1)->format('H:i:s'))
-                                                                <div
-                                                                    class="btn btn-soft-success waves-effect waves-light">
-                                                                    {{ date('H:i', strtotime($detailAttendance->created_at)) }}
-                                                                </div>
-                                                            @else
-                                                                <div
-                                                                    class="btn btn-soft-warning waves-effect waves-light">
+                                                        @endforeach
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if (isset($employe->attendances[0]))
+                                                        @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
+                                                            @if ($detailAttendance->status == 'return_break')
+                                                                @if (date('H:i:s', strtotime($detailAttendance->created_at)) <=
+                                                                        \Carbon\Carbon::createFromFormat('H:i:s', $attendanceRule?->return_ends ?? '13:00:00')->addMinutes(1)->format('H:i:s'))
+                                                                    <div
+                                                                        class="btn btn-soft-success waves-effect waves-light">
+                                                                        {{ date('H:i', strtotime($detailAttendance->created_at)) }}
+                                                                    </div>
+                                                                @else
+                                                                    <div
+                                                                        class="btn btn-soft-warning waves-effect waves-light">
+                                                                        {{ date('H:i', strtotime($detailAttendance->created_at)) }}
+                                                                    </div>
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if (isset($employe->attendances[0]))
+                                                        @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
+                                                            @if ($detailAttendance->status == 'return')
+                                                                <div class="btn btn-soft-success waves-effect waves-light">
                                                                     {{ date('H:i', strtotime($detailAttendance->created_at)) }}
                                                                 </div>
                                                             @endif
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if (isset($employe->attendances[0]))
-                                                    @foreach ($employe->attendances[0]->detailAttendances as $detailAttendance)
-                                                        @if ($detailAttendance->status == 'return')
-                                                            <div class="btn btn-soft-success waves-effect waves-light">
-                                                                {{ date('H:i', strtotime($detailAttendance->created_at)) }}
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                        </tr>
+                                                        @endforeach
+                                                    @endif
+                                                </td>
+                                            </tr>
                                         @empty
-                                        <tr>
-                                            <td colspan="9">
-                                                <div class="d-flex justify-content-center">
-                                                    <img src="{{ asset('nodata.png') }}"
-                                                        width="300px
+                                            <tr>
+                                                <td colspan="9">
+                                                    <div class="d-flex justify-content-center">
+                                                        <img src="{{ asset('nodata.png') }}"
+                                                            width="300px
                                                 "
-                                                        alt="">
-                                                </div>
-                                                <p class="text-center fs-5 mt-4" style="font-weight:700">
-                                                    Data Masih Kosong
-                                                </p>
-                                            </td>
-                                        </tr>
+                                                            alt="">
+                                                    </div>
+                                                    <p class="text-center fs-5 mt-4" style="font-weight:700">
+                                                        Data Masih Kosong
+                                                    </p>
+                                                </td>
+                                            </tr>
                                         @endforelse
                                     </tbody>
                                 </table>

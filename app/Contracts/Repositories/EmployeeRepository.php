@@ -15,23 +15,6 @@ class EmployeeRepository extends BaseRepository implements EmployeeInterface
     }
 
     /**
-     * getAttendanceToday
-     */
-    public function getAttendanceToday(): mixed
-    {
-        return $this->model->query()
-            ->withCount(['attendances' => function ($query) {
-                $query->whereDate('created_at', now());
-            }])
-            ->with(['attendances' => function ($query) {
-                $query->whereDate('created_at',now());
-            }])
-            ->whereNotNull('rfid')
-            ->orderByDesc('attendances_count')
-            ->get();
-    }
-
-    /**
      * search
      *
      * @param  mixed $request
