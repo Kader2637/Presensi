@@ -44,10 +44,8 @@ class AttendanceController extends Controller
         }
         $request->merge(['date' => $date]);
         $employes = $this->employee->search($request);
-
         // $employes = Employee::all();
         // dd($employes);
-
         $attendanceYears = Attendance::query()
             ->selectRaw('YEAR(created_at) as year')
             ->groupBy('year')
@@ -59,7 +57,7 @@ class AttendanceController extends Controller
             ->orderBy('month', 'desc')
             ->get();
         $attendanceRule = $this->attendanceRule->ruleToday();
-        return view('menu.absensi', compact( 'attendanceRule', 'attendanceYears', 'attendanceMonth', 'employes'));
+        return view('menu.absensi', compact('attendanceRule', 'attendanceYears', 'attendanceMonth', 'employes'));
     }
 
     public function export_excel(Request $request)

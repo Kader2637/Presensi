@@ -22,12 +22,14 @@ class EmployeeRepository extends BaseRepository implements EmployeeInterface
      */
     public function search(Request $request): mixed
     {
+        $searchDate = $request->input('date', now()->toDateString());
+
         return $this->model->query()
-            ->withCount(['attendances' => function ($query) {
-                $query->whereDate('created_at', now());
+            ->withCount(['attendances' => function ($query) use ($searchDate) {
+                $query->whereDate('created_at', $searchDate);
             }])
-            ->with(['attendances' => function ($query) use ($request) {
-                $query->whereDate('created_at', $request->date);
+            ->with(['attendances' => function ($query) use ($searchDate) {
+                $query->whereDate('created_at', $searchDate);
             }])
             ->when($request->name, function ($query) use ($request) {
                 $query->whereRelation('user', 'name', 'LIKE', '%' . $request->name . '%');
