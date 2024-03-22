@@ -96,14 +96,20 @@ class AttendanceController extends Controller
         foreach ($dataJson as $data) {
             $dataAttendance['employee_id'] = $data['user_id'];
             $dataAttendance['status'] = $data['status'];
-            $attendance = $this->attendance->store($dataAttendance);
+            $dataAttendance['created_at'] = $data['created_at'];
+            $dataAttendance['updated_at'] = $data['updated_at'];
+            if ($attendance = !$this->attendance->checkAttendanceToday($data['user_id'])) {
+                $attendance = $this->attendance->store($dataAttendance);
+            }
 
             foreach ($data['detail_attendances'] as $detailAttendance) {
                 $dataAttendanceDetail['attendance_id'] = $attendance->id;
                 $dataAttendanceDetail['status'] = $detailAttendance['status'];
                 $dataAttendanceDetail['created_at'] = $detailAttendance['created_at'];
                 $dataAttendanceDetail['updated_at'] = $detailAttendance['updated_at'];
-                $this->attendanceDetail->store($dataAttendanceDetail);
+                if (!$this->attendanceDetail->checkAttendanceToday(['status' => $detailAttendance['status'], 'attendance_id' => $attendance->id])) {
+                    $this->attendanceDetail->store($dataAttendanceDetail);
+                }
             }
             // $this->attendanceDetail->store($dataDetail);
         }
