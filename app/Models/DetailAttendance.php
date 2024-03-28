@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use App\Base\Interfaces\HasAttendance;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class attendace_detail extends Model
+class DetailAttendance extends Model implements HasAttendance
 {
     use HasFactory;
-    protected $table = 'attendace_details';
+
+    protected $table = 'detail_attendances';
     protected $primaryKey = 'id';
     public $incrementing = false;
     public $keyType = 'char';
@@ -24,6 +26,6 @@ class attendace_detail extends Model
      */
     public function attendance(): BelongsTo
     {
-        return $this->belongsTo(attendance::class);
+        return $this->belongsTo(Attendance::class);
     }
 }

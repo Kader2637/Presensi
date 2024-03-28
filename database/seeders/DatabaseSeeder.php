@@ -20,15 +20,5 @@ class DatabaseSeeder extends Seeder
             'password' => 'password'
         ]);
 
-        \App\Models\Position::factory()->create([
-            'name' => 'Admin'
-        ]);
-        \App\Models\Position::factory()->create([
-            'name' => 'Staff'
-        ]);
-        \App\Models\Position::factory()->create([
-            'name' => 'User'
-        ]);
-
     }
 }

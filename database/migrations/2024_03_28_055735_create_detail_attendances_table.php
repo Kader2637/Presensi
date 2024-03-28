@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attendace_details', function (Blueprint $table) {
+        Schema::create('detail_attendances', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('attendance_id')->constrained('attendances')->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('status', ['present', 'break', 'return_break', 'return']);
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attendace_details');
+        Schema::dropIfExists('detail_attendances');
     }
 };

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\Interfaces\AttendanceDetailInterface;
 use App\Contracts\Interfaces\AttendanceInterface;
 use App\Contracts\Interfaces\AttendanceRuleInterface;
+use App\Contracts\Interfaces\DetailAttendanceInterface;
 use App\Contracts\Interfaces\EmployeeInterface;
 use App\Exports\AbsensiExport;
 use App\Http\Requests\StoreattendanceRequest;
@@ -17,16 +17,14 @@ use Maatwebsite\Excel\Facades\Excel;
 class AttendanceController extends Controller
 {
     private AttendanceInterface $attendance;
-    private AttendanceDetailInterface $attendanceDetail;
+    private DetailAttendanceInterface $detailAttendance;
     private EmployeeInterface $employee;
     private AttendanceRuleInterface $attendanceRule;
-    // private AttendanceDetailInterface $attendanceDetail;
-    public function __construct(AttendanceInterface $attendance, AttendanceDetailInterface $attendanceDetailInterface, EmployeeInterface $employeeInterface, AttendanceRuleInterface $attendanceRuleInterface)
+    public function __construct(AttendanceInterface $attendance, DetailAttendanceInterface $detailAttendanceInterface, EmployeeInterface $employeeInterface, AttendanceRuleInterface $attendanceRuleInterface)
     {
         $this->attendanceRule = $attendanceRuleInterface;
         $this->employee = $employeeInterface;
-        $this->attendanceDetail = $attendanceDetailInterface;
-        // $this->attendanceDetail = $attendanceDetailInterface;
+        $this->detailAttendance = $detailAttendanceInterface;
         $this->attendance = $attendance;
     }
 
@@ -104,18 +102,12 @@ class AttendanceController extends Controller
                 ? : $this->attendance->store($attendanceData);
 
             foreach ($data['detail_attendances'] as $detailAttendance) {
-                $detailAttendanceData = [
-                    'attendance_id' => $attendance->id,
-                    'status' => $detailAttendance['status'],
-                    'created_at' => $detailAttendance['created_at'],
-                    'updated_at' => $detailAttendance['updated_at'],
-                ];
-
-                if (!$this->attendanceDetail->checkAttendanceToday([
-                    'status' => $detailAttendance['status'],
-                    'attendance_id' => $attendance->id,
-                ])) {
-                    $this->attendanceDetail->store($detailAttendanceData);
+                $dataAttendanceDetail['attendance_id'] = $attendance->id;
+                $dataAttendanceDetail['status'] = $detailAttendance['status'];
+                $dataAttendanceDetail['created_at'] = $detailAttendance['created_at'];
+                $dataAttendanceDetail['updated_at'] = $detailAttendance['updated_at'];
+                if (!$this->detailAttendance->checkAttendanceToday(['status' => $detailAttendance['status'], 'attendance_id' => $attendance->id])) {
+                    $this->detailAttendance->store($dataAttendanceDetail);
                 }
             }
         }

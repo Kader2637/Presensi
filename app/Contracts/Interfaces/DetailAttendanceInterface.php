@@ -4,7 +4,7 @@ namespace App\Contracts\Interfaces;
 
 use App\Contracts\Interfaces\Eloquent\StoreInterface;
 
-interface AttendanceDetailInterface extends StoreInterface
+interface DetailAttendanceInterface extends StoreInterface
 {
     /**
      * checkAttendanceToday

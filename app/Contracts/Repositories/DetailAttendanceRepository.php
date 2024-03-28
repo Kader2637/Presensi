@@ -1,16 +1,15 @@
 <?php
 namespace App\Contracts\Repositories;
 
-use App\Contracts\Interfaces\AttendanceDetailInterface;
+use App\Contracts\Interfaces\DetailAttendanceInterface;
 use App\Contracts\Repositories\BaseRepository;
-use App\Models\attendace_detail;
-use App\Models\attendance;
+use App\Models\DetailAttendance;
 
-class AttendanceDetailRepository extends BaseRepository implements AttendanceDetailInterface
+class DetailAttendanceRepository extends BaseRepository implements DetailAttendanceInterface
 {
-    public function __construct(attendace_detail $attendanceDetail)
+    public function __construct(DetailAttendance $detailAttendance)
     {
-        $this->model = $attendanceDetail;
+        $this->model = $detailAttendance;
     }
 
     /**
