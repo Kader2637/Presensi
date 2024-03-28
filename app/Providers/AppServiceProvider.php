@@ -22,7 +22,6 @@ class AppServiceProvider extends ServiceProvider
     private array $register = [
         EmployeeInterface::class => EmployeeRepository::class,
         DetailAttendanceInterface::class => DetailAttendanceRepository::class,
-        AttendanceInterface::class => AttendaceRepository::class,
         AttendanceInterface::class => AttendanceRepository::class,
         UserInterface::class => UserRepository::class,
         AttendanceRuleInterface::class => AttendanceRuleRepository::class,
