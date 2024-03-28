@@ -31,7 +31,7 @@ class AttendanceRepository extends BaseRepository implements AttendanceInterface
     public function store(array $data): mixed
     {
         return $this->model->query()
-            ->create($data);
+            ->updateOrCreate($data);
     }
 
     /**
@@ -43,7 +43,7 @@ class AttendanceRepository extends BaseRepository implements AttendanceInterface
     public function checkAttendanceToday(mixed $id): mixed
     {
         return $this->model->query()
-            ->where('created_at', now())
+            ->whereDate('created_at', now())
             ->where('employee_id', $id)
             ->first();
     }

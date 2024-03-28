@@ -34,7 +34,7 @@ class AttendanceDetailRepository extends BaseRepository implements AttendanceDet
     public function checkAttendanceToday(array $data): mixed
     {
         return $this->model->query()
-            ->where('created_at', now())
+            ->whereDate('created_at', now())
             ->where('status', $data['status'])
             ->where('attendance_id', $data['attendance_id'])
             ->first();

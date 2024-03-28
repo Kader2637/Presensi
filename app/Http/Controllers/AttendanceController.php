@@ -56,7 +56,7 @@ class AttendanceController extends Controller
             ->orderBy('month', 'desc')
             ->get();
         $attendanceRule = $this->attendanceRule->ruleToday();
-        return view('menu.absensi', compact( 'attendanceRule', 'attendanceYears', 'attendanceMonth', 'employes', 'request'));
+        return view('menu.absensi', compact('attendanceRule', 'attendanceYears', 'attendanceMonth', 'employes', 'request'));
     }
 
     public function export_excel(Request $request)
@@ -92,27 +92,34 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        $dataJson = $request->data;
-        foreach ($dataJson as $data) {
-            $dataAttendance['employee_id'] = $data['user_id'];
-            $dataAttendance['status'] = $data['status'];
-            $dataAttendance['created_at'] = $data['created_at'];
-            $dataAttendance['updated_at'] = $data['updated_at'];
-            if ($attendance = !$this->attendance->checkAttendanceToday($data['user_id'])) {
-                $attendance = $this->attendance->store($dataAttendance);
-            }
+        foreach ($request->data as $data) {
+            $attendanceData = [
+                'employee_id' => $data['user_id'],
+                'status' => $data['status'],
+                'created_at' => $data['created_at'],
+                'updated_at' => $data['updated_at'],
+            ];
+
+            $attendance = $this->attendance->checkAttendanceToday($data['user_id'])
+                ? : $this->attendance->store($attendanceData);
 
             foreach ($data['detail_attendances'] as $detailAttendance) {
-                $dataAttendanceDetail['attendance_id'] = $attendance->id;
-                $dataAttendanceDetail['status'] = $detailAttendance['status'];
-                $dataAttendanceDetail['created_at'] = $detailAttendance['created_at'];
-                $dataAttendanceDetail['updated_at'] = $detailAttendance['updated_at'];
-                if (!$this->attendanceDetail->checkAttendanceToday(['status' => $detailAttendance['status'], 'attendance_id' => $attendance->id])) {
-                    $this->attendanceDetail->store($dataAttendanceDetail);
+                $detailAttendanceData = [
+                    'attendance_id' => $attendance->id,
+                    'status' => $detailAttendance['status'],
+                    'created_at' => $detailAttendance['created_at'],
+                    'updated_at' => $detailAttendance['updated_at'],
+                ];
+
+                if (!$this->attendanceDetail->checkAttendanceToday([
+                    'status' => $detailAttendance['status'],
+                    'attendance_id' => $attendance->id,
+                ])) {
+                    $this->attendanceDetail->store($detailAttendanceData);
                 }
             }
-            // $this->attendanceDetail->store($dataDetail);
         }
+
         return response()->json(['message' => 'Sinkronisasi Presensi Berhasil', 'code' => 200]);
     }
 
