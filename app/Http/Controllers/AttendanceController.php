@@ -98,7 +98,7 @@ class AttendanceController extends Controller
                 'updated_at' => $data['updated_at'],
             ];
 
-            if (!$attendance = $this->attendance->checkAttendanceToday($data['user_id'])) {
+            if (!$attendance = $this->attendance->checkAttendanceToday(['employee_id' => $data['user_id'], 'created_at' => $data['created_at']])) {
                 $attendance = $this->attendance->store($attendanceData);
             }
 

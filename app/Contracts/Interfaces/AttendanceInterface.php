@@ -10,8 +10,8 @@ interface AttendanceInterface extends GetInterface, StoreInterface
     /**
      * checkAttendanceToday
      *
-     * @param  mixed $id
+     * @param  mixed $data
      * @return mixed
      */
-    public function checkAttendanceToday(mixed $id): mixed;
+    public function checkAttendanceToday(array $data): mixed;
 }
