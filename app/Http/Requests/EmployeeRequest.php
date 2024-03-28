@@ -24,6 +24,7 @@ class EmployeeRequest extends FormRequest
             'wages' => 'required',
             'rfid' => 'nullable',
             'address' => 'required',
+            'position' => 'required',
             'date_of_birth' => 'required|date',
         ];
     }
