@@ -43,7 +43,7 @@ class AttendanceRepository extends BaseRepository implements AttendanceInterface
     public function checkAttendanceToday(mixed $id): mixed
     {
         return $this->model->query()
-            ->whereDate('created_at', now())
+            ->whereDate('created_at', now()->startOfDay())
             ->where('employee_id', $id)
             ->first();
     }
