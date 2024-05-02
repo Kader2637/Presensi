@@ -16,7 +16,7 @@ class EmployeeFaceResource extends JsonResource
     {
         return [
             'rfid' => $this->rfid,
-            'md5' => md5($this->faces),
+            // 'md5' => md5($this->faces),
             'faces' => EmployeeFaceResource::collection($this->faces),
         ];
     }
