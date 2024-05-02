@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
@@ -9,15 +10,18 @@ class EmployeeFaceResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
      * @return array<string, mixed>
      */
-    public function toArray($request): array
+    public function toArray(Request $request): array
     {
+        $faces = $this->faces->map(function ($face) {
+            return new FaceResource($face);
+        });
+
         return [
             'rfid' => $this->rfid,
-            // 'md5' => md5($this->faces),
-            'faces' => EmployeeFaceResource::collection($this->faces),
+            'md5' => md5($faces->toJson()),
+            'faces' => $faces->toArray(),
         ];
     }
 }

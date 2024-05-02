@@ -42,7 +42,7 @@ class FaceController extends Controller
         $md5 = md5($faces);
 
         $response = [
-            'md5' => $md5,
+            // 'md5' => $md5,
             'result' => EmployeeFaceResource::collection($employees),
         ];
 
