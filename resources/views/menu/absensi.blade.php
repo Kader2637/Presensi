@@ -3,7 +3,7 @@
     <div class="row">
         <div class="d-flex justify-content-between mb-3">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Absensi Pegawai</h4>
+                <h4 class="mb-sm-0 font-size-18">Presensi Pegawai</h4>
             </div>
 
         </div>
@@ -80,7 +80,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Absensi Pegawai</h4>
+                    <h4 class="card-title">Presensi Pegawai</h4>
                     <div class="row justify-content-end">
                         <div class="col-12 col-md-6 col-lg-4">
                             <form action="">

@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::post('employe' , [EmployeeController::class , 'store'])->name('employe.store');
     Route::put('employee/{employee}', [EmployeeController::class, 'update']);
     Route::delete('delete-employee/{employee}', [EmployeeController::class, 'destroy']);
-    Route::get('absensi' , [AttendanceController::class , 'getAttendance']);
+    Route::get('presensi' , [AttendanceController::class , 'getAttendance']);
     Route::get('data-absensi/export/excel', [AttendanceController::class, 'export_excel'])->name('list.attendance.admin.export.excel');
     Route::get('face' , [FaceController::class , 'index']);
     Route::get('face/detail/{id}' , [FaceController::class , 'show']);

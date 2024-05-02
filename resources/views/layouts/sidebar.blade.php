@@ -27,9 +27,9 @@
             </ul>
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="/absensi" class="waves-effect">
+                    <a href="/presensi" class="waves-effect">
                         <i class='bx bxs-spreadsheet'></i>
-                        <span key="t-chat">Absensi</span>
+                        <span key="t-chat">Presensi</span>
                     </a>
                 </li>
             </ul>
