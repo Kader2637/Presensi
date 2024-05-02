@@ -32,8 +32,8 @@ class Attendance extends Model
      *
      * @return HasMany
      */
-    // public function detailAttendances(): HasMany
-    // {
-    //     return $this->hasMany(attendace_detail::class);
-    // }
+    public function detailAttendances(): HasMany
+    {
+        return $this->hasMany(DetailAttendance::class);
+    }
 }
