@@ -22,6 +22,7 @@ class EmployeeUpdateRequest extends FormRequest
             'photo' => 'nullable|image',
             'no' => 'required',
             'gender' => 'required',
+            'position' => 'required',
             'wages' => 'required',
             'rfid' => 'nullable',
             'address' => 'required',
