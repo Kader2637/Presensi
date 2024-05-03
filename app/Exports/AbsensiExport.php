@@ -31,8 +31,8 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
     public function headings(): array
     {
         $headings = [
-            ['No', 'Siswa'],
-            ['', '']
+            ['No', 'Siswa', 'Sekolah'],
+            ['', '', '']
         ];
 
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year);
@@ -40,12 +40,14 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
         // Append days as subheaders under the "Tanggal" header
         for ($day = 1; $day <= $daysInMonth; $day++) {
             $headings[0][] = 'Tanggal';
+            $headings[1][] = $day;
         }
 
         // Append the totals headers with a preceding merged cell header
         $totalsHeaders = ['Masuk', 'Alpha', 'Izin', 'Sakit'];
         foreach ($totalsHeaders as $header) {
             $headings[0][] = 'Jumlah';
+            $headings[1][] = $header;
         };
 
         return $headings;
