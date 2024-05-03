@@ -31,7 +31,7 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
     public function headings(): array
     {
         $headings = [
-            ['No', 'Siswa', 'Sekolah'],
+            ['No', 'Pegawai', 'Jabatan'],
             ['', '', '']
         ];
 
@@ -79,7 +79,7 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
         $row = [
             $rowNumber,
             $firstRecord->employe->name,
-            $firstRecord->employe->sekolah,
+            $firstRecord->employe->position,
         ];
 
         for ($day = 1; $day <= $daysInMonth; $day++) {
