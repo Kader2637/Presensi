@@ -39,7 +39,6 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
 
         // Append days as subheaders under the "Tanggal" header
         for ($day = 1; $day <= $daysInMonth; $day++) {
-            $headings[0][] = 'Tanggal';
             $headings[1][] = $day;
         }
 
