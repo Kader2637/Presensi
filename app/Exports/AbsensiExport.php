@@ -32,15 +32,15 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
     {
         $headings = [
             ['No', 'Siswa'],
-            ['']
+            ['', '']
         ];
 
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year);
 
         // Append days as subheaders under the "Tanggal" header
         for ($day = 1; $day <= $daysInMonth; $day++) {
-            $headings[0][] = 'Tanggal';
-            $headings[1][] = $day;
+            $headings[0][] = '';
+            $headings[1][] = '';
         }
 
         // Append the totals headers with a preceding merged cell header
