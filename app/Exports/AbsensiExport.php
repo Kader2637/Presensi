@@ -32,7 +32,7 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
     {
         $headings = [
             ['No', 'Siswa'],
-            ['', '']
+            ['']
         ];
 
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year);
