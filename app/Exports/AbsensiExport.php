@@ -31,7 +31,7 @@ class AbsensiExport implements FromCollection, WithHeadings, WithTitle, ShouldAu
     public function headings(): array
     {
         $headings = [
-            ['No', 'Siswa'],
+            ['No', 'Pegawai'],
             ['', '', '']
         ];
 
