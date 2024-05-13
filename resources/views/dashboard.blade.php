@@ -32,8 +32,169 @@
                             <a class="nav-link" data-bs-toggle="tab" href="#jumat" role="tab">Jumat</a>
                         </li>
                     </ul>
-                    <div class="tab-content mt-4" id="jadwal">
+                    <div class="tab-content mt-4">
+                        @php
+                            $days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
+                            $active = false;
+                        @endphp
+                        @foreach($entryTimes as $index => $entryTime)
+                            <div class="tab-pane" id="{{ $days[$index] }}" role="tabpanel">
+                                <div class="table-responsive" data-simplebar style="max-height: 330px;">
+                                    <form action="#" method="post">
+                                        <input type="hidden" name="day" value="{{ $entryTime->day }}">
+                                        @csrf
+                                        @method('POST')
+                                        <table class="table align-middle table-nowrap">
+                                            <tbody>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
 
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkin_starts" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->checkin_starts}}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkin_ends" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->checkin_ends}}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="break_starts" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->break_starts}}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="break_ends" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->break_ends}}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="return_starts" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->return_starts}}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="return_ends" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->return_ends}}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 50px;">
+                                                    <div class="font-size-22 text-primary">
+                                                        <i class="bx bx-time-five"></i>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-14 mb-1">:</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkout_starts" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->checkout_starts}}" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        -
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <input type="time" name="checkout_ends" class="form-control"
+                                                               placeholder="Sampai" value="{{$entryTime->checkout_ends}}" disabled>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -142,213 +303,204 @@
     </div>
 @endsection
 @section('script')
-    <script>
-        get(1)
-        function get(page) {
-    const token = localStorage.getItem('token');
-    $.ajax({
-        url: "https://pkl.hummatech.com/api/entry-time",
-        type: 'GET',
-        dataType: "JSON",
-        data: {
-            pagination: $('#pagination-page').val(),
-            school_year: $('#search-name').val(),
-        },
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + token,
-        },
-        beforeSend: function() {
-            $('#jadwal').html('');
-            $('#pagination').html('');
-        },
-        success: function(response) {
-            // console.log(response)
-            $('#jadwal').html('');
-            $('#loading').html('');
-            if (response.result.length > 0) {
-                var days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
-                $.each(response.result, function(index, item) {
-                    var active = (index === 0) ? 'active' : ''; // Menandai tab pane pertama sebagai aktif
-                    var tabId = days[index].toLowerCase(); // Mengkonversi nama hari menjadi lowercase
-                    var row =
-                        `<div class="tab-pane ${active}" id="${tabId}" role="tabpanel">
-                            <div class="table-responsive" data-simplebar style="max-height: 330px;">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="day" value="monday">
-                                    @csrf
-                                    @method('POST')
-                                    <table class="table align-middle table-nowrap">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
+{{--    <script>--}}
+{{--        get(1)--}}
+{{--        function get(page) {--}}
+{{--    const token = localStorage.getItem('token');--}}
+{{--    $.ajax({--}}
+{{--        url: "https://pkl.hummatech.com/api/entry-time",--}}
+{{--        type: 'GET',--}}
+{{--        beforeSend: function() {--}}
+{{--            $('#jadwal').html('');--}}
+{{--            $('#pagination').html('');--}}
+{{--        },--}}
+{{--        success: function(response) {--}}
+{{--            // console.log(response)--}}
+{{--            $('#jadwal').html('');--}}
+{{--            $('#loading').html('');--}}
+{{--            if (response.result.length > 0) {--}}
+{{--                var days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];--}}
+{{--                $.each(response.result, function(index, item) {--}}
+{{--                    var active = (index === 0) ? 'active' : ''; // Menandai tab pane pertama sebagai aktif--}}
+{{--                    var tabId = days[index].toLowerCase(); // Mengkonversi nama hari menjadi lowercase--}}
+{{--                    var row =--}}
+{{--                        `<div class="tab-pane ${active}" id="${tabId}" role="tabpanel">--}}
+{{--                            <div class="table-responsive" data-simplebar style="max-height: 330px;">--}}
+{{--                                <form action="#" method="post">--}}
+{{--                                    <input type="hidden" name="day" value="monday">--}}
+{{--                                    @csrf--}}
+{{--                                    @method('POST')--}}
+{{--                                    <table class="table align-middle table-nowrap">--}}
+{{--                                        <tbody>--}}
+{{--                                            <tr>--}}
+{{--                                                <td style="width: 50px;">--}}
+{{--                                                    <div class="font-size-22 text-primary">--}}
+{{--                                                        <i class="bx bx-time-five"></i>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
 
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Masuk</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">Masuk</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">:</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
 
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_starts" class="form-control"
-                                                            placeholder="Sampai" value="${item.checkin_starts}" disabled>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkin_ends" class="form-control"
-                                                            placeholder="Sampai" value="${item.checkin_ends}" disabled>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="checkin_starts" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.checkin_starts}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        ---}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="checkin_ends" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.checkin_ends}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <td style="width: 50px;">--}}
+{{--                                                    <div class="font-size-22 text-primary">--}}
+{{--                                                        <i class="bx bx-time-five"></i>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
 
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">Istirahat</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">:</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
 
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_starts" class="form-control"
-                                                            placeholder="Sampai" value="${item.break_starts}" disabled>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="break_ends" class="form-control"
-                                                            placeholder="Sampai" value="${item.break_ends}" disabled>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="break_starts" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.break_starts}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        ---}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="break_ends" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.break_ends}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <td style="width: 50px;">--}}
+{{--                                                    <div class="font-size-22 text-primary">--}}
+{{--                                                        <i class="bx bx-time-five"></i>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
 
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">Balik Istirahat</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">:</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
 
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_starts" class="form-control"
-                                                            placeholder="Sampai" value="${item.return_starts}" disabled>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="return_ends" class="form-control"
-                                                            placeholder="Sampai" value="${item.return_ends}" disabled>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 50px;">
-                                                    <div class="font-size-22 text-primary">
-                                                        <i class="bx bx-time-five"></i>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">Pulang</h5>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="font-size-14 mb-1">:</h5>
-                                                    </div>
-                                                </td>
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="return_starts" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.return_starts}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        ---}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="return_ends" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.return_ends}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
+{{--                                            <tr>--}}
+{{--                                                <td style="width: 50px;">--}}
+{{--                                                    <div class="font-size-22 text-primary">--}}
+{{--                                                        <i class="bx bx-time-five"></i>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">Pulang</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="font-size-14 mb-1">:</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
 
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_starts" class="form-control"
-                                                            placeholder="Sampai" value="${item.checkout_starts}" disabled>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        -
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="">
-                                                        <input type="time" name="checkout_ends" class="form-control"
-                                                            placeholder="Sampai" value="${item.checkout_ends}" disabled>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </form>
-                            </div>
-                        </div>`;
-                    $('#jadwal').append(row);
-                });
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="checkout_starts" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.checkout_starts}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        ---}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <div class="">--}}
+{{--                                                        <input type="time" name="checkout_ends" class="form-control"--}}
+{{--                                                            placeholder="Sampai" value="${item.checkout_ends}" disabled>--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
+{{--                                        </tbody>--}}
+{{--                                    </table>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </div>`;--}}
+{{--                    $('#jadwal').append(row);--}}
+{{--                });--}}
 
-                $('.btn-create').click(function() {
-                    $('#form-create').trigger('reset');
-                    $('#modal-edit').modal('show');
-                });
-                $('.btn-edit').click(function() {
-                    $('#form-update').data('id', $(this).data('id'));
-                    $('.name').val($(this).data('name'));
-                    $('#modal-edit').modal('show');
-                });
-                $('.btn-delete').click(function() {
-                    $('#form-delete').data('id', $(this).data('id'));
-                    $('#modal-delete').modal('show');
-                });
-            } else {
-                $('#loading').html(showNoData('Tahun ajaran Tidak Ada!'));
-            }
-        }
-    });
-}
-    </script>
+{{--                $('.btn-create').click(function() {--}}
+{{--                    $('#form-create').trigger('reset');--}}
+{{--                    $('#modal-edit').modal('show');--}}
+{{--                });--}}
+{{--                $('.btn-edit').click(function() {--}}
+{{--                    $('#form-update').data('id', $(this).data('id'));--}}
+{{--                    $('.name').val($(this).data('name'));--}}
+{{--                    $('#modal-edit').modal('show');--}}
+{{--                });--}}
+{{--                $('.btn-delete').click(function() {--}}
+{{--                    $('#form-delete').data('id', $(this).data('id'));--}}
+{{--                    $('#modal-delete').modal('show');--}}
+{{--                });--}}
+{{--            } else {--}}
+{{--                $('#loading').html(showNoData('Tahun ajaran Tidak Ada!'));--}}
+{{--            }--}}
+{{--        },--}}
+{{--    });--}}
+{{--}--}}
+{{--    </script>--}}
 @endsection

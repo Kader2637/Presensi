@@ -11,6 +11,7 @@ use App\Http\Requests\StoreattendanceRequest;
 use App\Http\Requests\UpdateattendanceRequest;
 use App\Models\Attendance;
 use App\Models\Employee;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -68,14 +69,18 @@ class AttendanceController extends Controller
         $month = $request->input('month');
         return Excel::download(new AbsensiExport($year, $month), "absensi-{$year}-{$month}.xlsx");
     }
+
     /**
-     * Display a listing of the resource.
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $url = "https://pkl.hummatech.com/api/entry-time";
         $response = file_get_contents($url);
-        dd($response);
+        $entryTimes = json_decode($response)->result;
+        $employees = Employee::query()
+            ->count();
+        return view('dashboard' , compact('employees', 'entryTimes'));
     }
     /**
      * Show the form for creating a new resource.

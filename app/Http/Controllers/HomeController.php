@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,9 +28,15 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function dashboard()
+    /**
+     * @return View
+     */
+    public function dashboard(): View
     {
-        $employees = Employee::count();
-        return view('dashboard' , compact('employees'));
+        $url = "https://pkl.hummatech.com/api/entry-time";
+        $response = file_get_contents($url);
+        $entryTimes = json_decode($response)->result;
+        $employees = Employee::query()->count();
+        return view('dashboard' , compact('employees', 'entryTimes'));
     }
 }
