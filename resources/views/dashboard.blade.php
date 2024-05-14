@@ -38,7 +38,7 @@
                             $active = false;
                         @endphp
                         @foreach($entryTimes as $index => $entryTime)
-                            <div class="tab-pane" id="{{ $days[$index] }}" role="tabpanel">
+                            <div class="tab-pane {{ $index == 0 ? 'active' : '' }}" id="{{ $days[$index] }}" role="tabpanel">
                                 <div class="table-responsive" data-simplebar style="max-height: 330px;">
                                     <form action="#" method="post">
                                         <input type="hidden" name="day" value="{{ $entryTime->day }}">
